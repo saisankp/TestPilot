@@ -1,4 +1,12 @@
+# Visual Studio Code extension
 **/dist/
 **/node_modules
 **/.vscode
 .DS_Store
+
+# Flash Python server
+**/shelf/
+**/workspace.xml
+**/httpRequests/
+**/dataSources/
+**/dataSources.local.xml
