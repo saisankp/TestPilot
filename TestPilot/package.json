@@ -11,25 +11,27 @@
   ],
   "main": "./dist/extension.js",
   "contributes": {
-    "commands": [
-      {
-        "command": "TestPilot.helloWorld",
-        "title": "Hello World"
-      },
-      {
-        "command": "extension.showHelloWorldPanel",
-        "title": "Show Hello World Panel"
-      }
-    ],
-    "views": {
-      "explorer": [
-          {
-              "id": "helloWorldPanel",
-              "name": "Hello World"
-          }
-      ]
-  }
-  },
+		"viewsContainers": {
+			"activitybar": [
+				{
+					"id": "testpilot-sidebar-view",
+					"title": "TestPilot",
+					"icon": "media/icon.svg"
+				}
+			]
+		},
+		"views": {
+			"testpilot-sidebar-view": [
+				{
+					"type": "webview",
+					"id": "testpilot-sidebar",
+					"name": "TestPilot",
+					"icon": "media/icon.svg",
+					"contextualTitle": "TestPilot"
+				}
+			]
+		}
+	},
   "scripts": {
     "vscode:prepublish": "npm run package",
     "compile": "webpack",
