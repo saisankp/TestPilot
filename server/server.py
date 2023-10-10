@@ -1,18 +1,11 @@
 from flask import Flask, request, jsonify
 from dotenv import load_dotenv
 from flask_cors import CORS, cross_origin
-import openai
-
 from prompt_engineering import prompt_engineering
+import openai
 
 testpilot = Flask(__name__)
 CORS(testpilot, support_credentials=True)
-
-
-@testpilot.route("/")
-@cross_origin(supports_credentials=True)
-def home():
-    return "hi"
 
 
 @testpilot.route("/gpt")
