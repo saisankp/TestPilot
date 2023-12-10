@@ -5,3 +5,7 @@ Imagine you are a novice programmer who has just written code that they <i>somew
 
 TestPilot is a Visual Studio Code extension to help novice programmers write good unit tests. By providing a brief and clueless natural language description of what your code should do, it generates correct and educational tests to help novice programmers grasp the concept of testing.
 </p>
+
+
+![Untitled](https://github.com/saisankp/TestPilot/assets/34750736/1bb75306-341f-40cd-b4c2-06d2c3732331)
+
