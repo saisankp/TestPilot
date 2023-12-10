@@ -1,6 +1,6 @@
 # TestPilot backend
 
-This directory contains code for the backend server which integrates with OpenAI's GPT model. This server is made with Flask in Python, with the endpoint `/gpt` that requires code from Visual Studio Code as the body to the request.
+This directory contains code for the backend server which integrates with OpenAI's GPT model. This server is made with Flask in Python, with the endpoint `/testpilot` that requires code from Visual Studio Code as the body to the request. Furthermore, the endpoint `testpilot-correction` is available to fix any errors from previous requests.
 
 # How to run this server locally
 
