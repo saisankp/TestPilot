@@ -7,5 +7,6 @@ TestPilot is a Visual Studio Code extension to help novice programmers write goo
 </p>
 
 
-![Untitled](https://github.com/saisankp/TestPilot/assets/34750736/1bb75306-341f-40cd-b4c2-06d2c3732331)
+![Untitled](https://github.com/saisankp/TestPilot/assets/34750736/d6ea3252-c5af-408b-8dd6-097d4b9451cf)
+
 
