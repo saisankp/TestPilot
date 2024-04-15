@@ -1,6 +1,6 @@
 :root {
 	--container-padding: 20px;
-	--input-padding-vertical: 6px;
+	--input-padding-vertical: 8.5px;
 	--input-padding-horizontal: 4px;
 	--input-margin-vertical: 4px;
 	--input-margin-horizontal: 0;
@@ -40,6 +40,10 @@ a {
 	color: var(--vscode-textLink-foreground);
 }
 
+b {
+	color: var(--vscode-foreground)
+}
+
 a:hover,
 a:active {
 	color: var(--vscode-textLink-activeForeground);
@@ -55,10 +59,12 @@ button {
 	padding: var(--input-padding-vertical) var(--input-padding-horizontal);
 	width: 100%;
 	text-align: center;
-	outline: 1px solid transparent;
-	outline-offset: 2px !important;
+	/* outline: 1px solid transparent;
+	outline-offset: 2px !important; */
 	color: var(--vscode-button-foreground);
 	background: var(--vscode-button-background);
+	border-radius: 5px;
+	font-size: 1.1em;
 }
 
 button:hover {
@@ -149,3 +155,89 @@ p {
     margin: 10px; 
 	pointer-events: none;
 }
+
+.select {
+	width: 100%;
+	border-radius: 0;
+}
+
+.switchDiv {
+	display: flex; 
+	justify-content: center;
+}
+
+fluent-select {
+	min-width: 100px;
+}
+
+
+fluent-select::part(control) {
+	padding-left: 27px;
+	
+	/* background: var(--vscode-foreground);
+	font-size: 50; */
+	/* border-radius: 0; */
+}
+
+/* fluent-select::part(slot) {
+	display: none;
+}
+
+fluent-select::part(control):hover {
+	background: var(--vscode-descriptionForeground);
+} */
+
+
+/* fluent-select::part(listbox) { */
+	/* background: var(--vscode-foreground); */
+	/* border-radius: 0; */
+/* } */
+
+/* fluent-option {
+	background: var(--vscode-foreground);
+}
+
+fluent-option:hover {
+	background: var(--vscode-descriptionForeground);
+} */
+
+
+fluent-select::part(selected-value) {
+	text-align: center;
+	font-size: 1em;
+	/* flex-grow: 1;
+	text-align: center;
+	border: none;
+	padding: var(--input-padding-vertical) var(--input-padding-horizontal); */
+	/* width: 100%; */
+	/* outline: 1px solid transparent;
+	outline-offset: 2px !important;
+	color: var(--vscode-button-foreground);
+	background: var(--vscode-button-background); */
+}
+
+@media (max-width: 300px) {
+	/* Change font size when viewport width is smaller */
+	button {
+		font-size: calc(1.2em * 0.8); /* Adjust the factor as needed */
+	}
+	fluent-select::part(selected-value) {
+		font-size: calc(1.2em * 0.8); /* Adjust the factor as needed */
+	}
+}
+
+@media (max-width: 210px) {
+	/* Change font size when viewport width is smaller */
+	button {
+		font-size: calc(1.2em * 0.8); /* Adjust the factor as needed */
+	}
+	p {
+		font-size: calc(1.2em * 0.6); /* Adjust the factor as needed */
+	}
+
+	fluent-select::part(selected-value) {
+		font-size: calc(1.2em * 0.48); /* Adjust the factor as needed */
+	}
+	
+}
+

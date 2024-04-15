@@ -1,0 +1,3 @@
+[submodule "data/methods2test"]
+	path = data/methods2test
+	url = https://github.com/microsoft/methods2test

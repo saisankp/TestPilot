@@ -1,0 +1,1887 @@
+code,test
+"public int addition(int a, int b) {
+		return a + b;
+	}","// Test if the addition method correctly adds two numbers.
+	@Test
+	public void testAddition() {
+		// Arrange
+		int a = 5;
+		int b = 3;
+		Example example = new Example();
+
+		// Act
+		int result = example.addition(a, b);
+
+		// Assert
+		assertEquals(8, result);
+	}"
+"public static int add(int a, int b) {
+        return a + b;
+    }","// Test for the add() method in Example class
+    @Test
+    public void testAdd() {
+        // Arrange
+        int a = 5;
+        int b = 10;
+        
+        // Act
+        int result = Example.add(a, b);
+        
+        // Assert
+        assertEquals(15, result);
+    }"
+"public int calculateSum(int a, int b) {
+        return a + b;
+    }","// Test for calculateSum method
+    @Test
+    public void testCalculateSum() {
+        // Arrange
+        Example example = new Example();
+        int a = 5;
+        int b = 7;
+        
+        // Act
+        int result = example.calculateSum(a, b);
+        
+        // Assert
+        assertEquals(12, result);
+    }"
+"public int add(int a, int b) {
+        return a + b;
+    }","// Test case to verify the add function of Example class
+    @Test
+    public void testAdd() {
+        // Arrange
+        Example example = new Example();
+        int a = 5;
+        int b = 7;
+
+        // Act
+        int result = example.add(a, b);
+
+        // Assert
+        assertEquals(12, result, ""Adding 5 and 7 should return 12"");
+    }"
+"public int multiply(int a, int b) {
+        return a * b;
+    }","//Test f the multiply method correctly multiplies two numbers.
+    @Test
+    public void testMultiply() {
+        // Arrange
+        Example example = new Example();
+        int a = 5;
+        int b = 10;
+        
+        // Act
+        int result = example.multiply(a, b);
+        
+        // Assert
+        assertEquals(""Multiplication of 5 and 10 should be 50"", 50, result);
+    }"
+"public int square(int num) {
+        return num * num;
+    }","// Test for square function
+    @Test
+    public void testSquare() {
+        // Arrange
+        Example example = new Example();
+        int input = 5;
+        
+        // Act
+        int result = example.square(input);
+        
+        // Assert
+        assertEquals(25, result);
+    }"
+"public int subtract(int a, int b) {
+        return a - b;
+    }","/**
+     * Test case to verify the subtract method functionality.
+     */
+    @Test
+    public void testSubtract() {
+        // Arrange
+        Example example = new Example();
+        int a = 5;
+        int b = 3;
+        
+        // Act
+        int result = example.subtract(a, b);
+        
+        // Assert
+        assertEquals(2, result);
+    }"
+"public static String reverseString(String input) {
+        if (input == null)
+            return null;
+        
+        StringBuilder reversed = new StringBuilder();
+        for (int i = input.length() - 1; i >= 0; i--) {
+            reversed.append(input.charAt(i));
+        }
+        return reversed.toString();
+    }","/**
+     * Test the reverseString function with a valid input.
+     */
+    @Test
+    public void testReverseString_ValidInput_ReturnsReversedString() {
+        // Arrange
+        String input = ""hello"";
+        
+        // Act
+        String result = Example.reverseString(input);
+        
+        // Assert
+        assertEquals(""olleh"", result);
+    }"
+"public String ConcatenateStrings(String str1, String str2) {
+        if (str1 == null && str2 == null) {
+            return null;
+        } else if (str1 == null) {
+            return str2;
+        } else if (str2 == null) {
+            return str1;
+        } else {
+            return str1 + str2;
+        }
+    }","// Test for ConcatenateStrings function
+    @Test
+    public void testConcatenateStrings() {
+        // Arrange
+        Example example = new Example();
+        String str1 = ""Hello"";
+        String str2 = ""World"";
+        
+        // Act
+        String result = example.ConcatenateStrings(str1, str2);
+        
+        // Assert
+        assertEquals(""HelloWorld"", result);
+    }"
+"public String reverseString(String str) {
+        StringBuilder reversed = new StringBuilder();
+        for (int i = str.length() - 1; i >= 0; i--) {
+            reversed.append(str.charAt(i));
+        }
+        return reversed.toString();
+    }","// Test for reverseString method
+    @Test
+    public void testReverseString() {
+        // Arrange
+        Example example = new Example();
+        String input = ""hello"";
+        
+        // Act
+        String result = example.reverseString(input);
+        
+        // Assert
+        assertEquals(""olleh"", result);
+    }"
+"public int findMax(int[] arr) {
+        if (arr == null || arr.length == 0) {
+            throw new IllegalArgumentException(""Array must not be null or empty"");
+        }
+        int max = arr[0];
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i] > max) {
+                max = arr[i];
+            }
+        }
+        return max;
+    }","/**
+     * Test to verify the functionality of the findMax method.
+     * It checks if the method correctly finds the maximum value in an array.
+     */
+    @Test
+    void testFindMax() {
+        // Arrange
+        Example example = new Example();
+        int[] arr = {3, 7, 2, 9, 5};
+
+        // Act
+        int result = example.findMax(arr);
+
+        // Assert
+        assertEquals(9, result);
+    }"
+"public int divide(int a, int b) {
+        if (b == 0) {
+            throw new IllegalArgumentException(""Cannot divide by zero"");
+        }
+        return a / b;
+    }","/**
+     * Test case for the divide method of Example class.
+     */
+    @Test
+    public void testDivide() {
+        // Arrange
+        Example example = new Example();
+        int a = 10;
+        int b = 2;
+
+        // Act
+        int result = example.divide(a, b);
+
+        // Assert
+        assertEquals(5, result);
+    }"
+"public int square(int num) {
+        return num * num;
+    }","// Test for the square method
+    @Test
+    public void testSquare() {
+        // Arrange
+        Example example = new Example();
+        int input = 5;
+        
+        // Act
+        int result = example.square(input);
+        
+        // Assert
+        assertEquals(25, result);
+    }"
+"public int absoluteDifference(int a, int b) {
+        return a > b ? a - b : b - a;
+    }","// Test for absoluteDifference() function
+    @Test
+    public void testAbsoluteDifference() {
+        // Arrange
+        Example example = new Example();
+        int a = 7;
+        int b = 10;
+
+        // Act
+        int result = example.absoluteDifference(a, b);
+
+        // Assert
+        assert result == 3 : ""Absolute difference should be 3"";
+    }"
+"public boolean isEven(int num) {
+        return num % 2 == 0;
+    }","// Test for the isEven function
+    @Test
+    public void testIsEven() {
+        // Arrange
+        Example example = new Example();
+        int evenNum = 4;
+        int oddNum = 5;
+
+        // Act
+        boolean resultEven = example.isEven(evenNum);
+        boolean resultOdd = example.isEven(oddNum);
+
+        // Assert
+        assertTrue(resultEven);
+        assertFalse(resultOdd);
+    }"
+"// Random function: Returns the absolute value of a number
+    public int absoluteValue(int num) {
+        if (num >= 0) {
+            return num;
+        } else {
+            return -num;
+        }
+    }","// Test for absoluteValue method
+    @Test
+    public void testAbsoluteValue() {
+        // Arrange
+        Example example = new Example();
+        int input = -5;
+        
+        // Act
+        int result = example.absoluteValue(input);
+        
+        // Assert
+        assertEquals(5, result);
+    }"
+"public int calculateLength(String input) {
+        return input != null ? input.length() : 0;
+    }","// Test case for calculateLength() function
+    @Test
+    public void testCalculateLength() {
+        // Arrange
+        Example example = new Example();
+        String input = ""Hello World"";
+        
+        // Act
+        int result = example.calculateLength(input);
+        
+        // Assert
+        assertEquals(11, result);
+    }"
+"public int divide(int a, int b) {
+        return a / b;
+    }","// Test for divide function
+    @Test
+    void testDivide() {
+        // Arrange
+        Example example = new Example();
+        int a = 10;
+        int b = 2;
+        
+        // Act
+        int result = example.divide(a, b);
+        
+        // Assert
+        assertEquals(5, result);
+    }"
+" public int countVowels(String str) {
+        int count = 0;
+        for (char ch : str.toCharArray()) {
+            if (""aeiouAEIOU"".indexOf(ch) != -1) {
+                count++;
+            }
+        }
+        return count;
+    }","/**
+     * Test to verify counting vowels in a string.
+     */
+    @Test
+    public void testCountVowels() {
+        // Arrange
+        Example example = new Example();
+        String input = ""Hello World"";
+
+        // Act
+        int result = example.countVowels(input);
+
+        // Assert
+        assertEquals(3, result);
+    }"
+"public int countOccurrences(int[] arr, int target) {
+        int count = 0;
+        for (int num : arr) {
+            if (num == target) {
+                count++;
+            }
+        }
+        return count;
+    }","// Test case to verify the countOccurrences function
+    @Test
+    public void testCountOccurrences() {
+        // Arrange
+        Example example = new Example();
+        int[] arr = {1, 2, 3, 4, 1, 1, 2};
+        int target = 1;
+
+        // Act
+        int result = example.countOccurrences(arr, target);
+
+        // Assert
+        assertEquals(3, result);
+    }"
+"public boolean isEven(int num) {
+        return num % 2 == 0;
+    }","// Test to check if the isEven function correctly identifies even numbers
+    @Test
+    public void testIsEven() {
+        // Arrange
+        Example example = new Example();
+        int evenNum = 4;
+        int oddNum = 3;
+        
+        // Act
+        boolean resultEven = example.isEven(evenNum);
+        boolean resultOdd = example.isEven(oddNum);
+        
+        // Assert
+        assertTrue(""Even number check failed"", resultEven);
+        assertFalse(""Odd number check failed"", resultOdd);
+    }"
+"public int factorial(int n) {
+        if (n == 0 || n == 1) {
+            return 1;
+        } else {
+            return n * factorial(n - 1);
+        }
+    }","// Test for the factorial function with positive integer input.
+    @Test
+    public void testFactorial() {
+        // Arrange
+        Example example = new Example();
+        int n = 5;
+        
+        // Act
+        int result = example.factorial(n);
+        
+        // Assert
+        assertEquals(120, result);
+    }"
+"public int randomFunction(int a, int b) {
+        return a / b;
+    }","/**
+     * Test for the randomFunction method.
+     * Description: Tests the division operation in the randomFunction method.
+     */
+    @Test
+    public void testRandomFunction() {
+        // Arrange
+        Example example = new Example();
+        int a = 10;
+        int b = 2;
+        
+        // Act
+        int result = example.randomFunction(a, b);
+        
+        // Assert
+        assertEquals(5, result);
+    }"
+"// This function returns the length of the input array.
+    public int getArrayLength(Object[] arr) {
+        if (arr == null) {
+            return 0;
+        }
+        return arr.length;
+    }","// Test to verify the behavior of getArrayLength() function.
+    @Test
+    public void testGetArrayLength() {
+        // Arrange
+        Example example = new Example();
+        Object[] arr = {1, 2, 3, 4, 5};
+
+        // Act
+        int length = example.getArrayLength(arr);
+
+        // Assert
+        assertEquals(5, length);
+    }"
+"// Random function to calculate the factorial of a non-negative integer
+    public int factorial(int n) {
+        if (n < 0)
+            throw new IllegalArgumentException(""Input must be non-negative"");
+        if (n == 0)
+            return 1;
+        int result = 1;
+        for (int i = 1; i <= n; i++) {
+            result *= i;
+        }
+        return result;
+    }"," // Test case to check the factorial function
+    @Test
+    public void testFactorial() {
+        // Arrange
+        Example example = new Example();
+        int input = 5;
+        int expectedOutput = 120;
+        
+        // Act
+        int actualOutput = example.factorial(input);
+        
+        // Assert
+        assertEquals(expectedOutput, actualOutput);
+    }"
+"public int getRandomNumber() {
+        return (int) (Math.random() * 100);
+    }"," /**
+     * Test to verify that getRandomNumber method returns a number between 0 and 100.
+     */
+    @Test
+    public void testGetRandomNumber() {
+        // Arrange
+        Example example = new Example();
+
+        // Act
+        int randomNumber = example.getRandomNumber();
+
+        // Assert
+        assertTrue(randomNumber >= 0 && randomNumber <= 100);
+    }"
+"public boolean isPrime(int number) {
+        if (number <= 1) {
+            return false;
+        }
+        for (int i = 2; i <= Math.sqrt(number); i++) {
+            if (number % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }","/**
+     * Test to verify that isPrime method correctly identifies prime numbers.
+     */
+    @Test
+    public void testIsPrime() {
+        // Arrange
+        Example example = new Example();
+
+        // Act
+        boolean result1 = example.isPrime(7);
+        boolean result2 = example.isPrime(4);
+
+        // Assert
+        assertTrue(result1);
+        assertFalse(result2);
+    }"
+"public String reverseString(String input) {
+        StringBuilder reversed = new StringBuilder();
+        for (int i = input.length() - 1; i >= 0; i--) {
+            reversed.append(input.charAt(i));
+        }
+        return reversed.toString();
+    }","/**
+     * Test to verify that reverseString method correctly reverses a string.
+     */
+    @Test
+    public void testReverseString() {
+        // Arrange
+        Example example = new Example();
+        String input = ""hello"";
+
+        // Act
+        String result = example.reverseString(input);
+
+        // Assert
+        assertEquals(""olleh"", result);
+    }"
+"public boolean isEven(int number) {
+        return number % 2 == 0;
+    }"," /**
+     * Test to verify that isEven method correctly identifies even numbers.
+     */
+    @Test
+    public void testIsEven() {
+        // Arrange
+        Example example = new Example();
+
+        // Act
+        boolean result1 = example.isEven(6);
+        boolean result2 = example.isEven(3);
+
+        // Assert
+        assertTrue(result1);
+        assertFalse(result2);
+    }"
+"public int getFactorial(int n) {
+        if (n == 0) {
+            return 1;
+        }
+        return n * getFactorial(n - 1);
+    }
+}","/**
+     * Test to verify that getFactorial method correctly calculates the factorial of a number.
+     */
+    @Test
+    public void testGetFactorial() {
+        // Arrange
+        Example example = new Example();
+
+        // Act
+        int result1 = example.getFactorial(5);
+        int result2 = example.getFactorial(0);
+
+        // Assert
+        assertEquals(120, result1);
+        assertEquals(1, result2);
+    }"
+"public boolean isPalindrome(String str) {
+        int i = 0, j = str.length() - 1;
+        while (i < j) {
+            if (str.charAt(i) != str.charAt(j)) {
+                return false;
+            }
+            i++;
+            j--;
+        }
+        return true;
+    }","/**
+     * Test to verify that isPalindrome method correctly identifies palindrome strings.
+     */
+    @Test
+    public void testIsPalindrome() {
+        // Arrange
+        Example example = new Example();
+
+        // Act
+        boolean result1 = example.isPalindrome(""racecar"");
+        boolean result2 = example.isPalindrome(""hello"");
+
+        // Assert
+        assertTrue(result1);
+        assertFalse(result2);
+    }"
+" public int sumArray(int[] numbers) {
+        int sum = 0;
+        for (int num : numbers) {
+            sum += num;
+        }
+        return sum;
+    }","/**
+     * Test to verify that sumArray method correctly calculates the sum of numbers in an array.
+     */
+    @Test
+    public void testSumArray() {
+        // Arrange
+        Example example = new Example();
+        int[] numbers = {1, 2, 3, 4, 5};
+
+        // Act
+        int result = example.sumArray(numbers);
+
+        // Assert
+        assertEquals(15, result);
+    }"
+"public boolean isOdd(int number) {
+        return number % 2 != 0;
+    }"," /**
+     * Test to verify that isOdd method correctly identifies odd numbers.
+     */
+    @Test
+    public void testIsOdd() {
+        // Arrange
+        Example example = new Example();
+
+        // Act
+        boolean result1 = example.isOdd(7);
+        boolean result2 = example.isOdd(4);
+
+        // Assert
+        assertTrue(result1);
+        assertFalse(result2);
+    }"
+"public int divide(int a, int b) {
+        if (b == 0) {
+            throw new IllegalArgumentException(""Cannot divide by zero"");
+        }
+        return a / b;
+    }","    // Test for divide() function
+    @Test
+    public void testDivide() {
+        // Arrange
+        Example example = new Example();
+        int a = 10;
+        int b = 2;
+
+        // Act
+        int result = example.divide(a, b);
+
+        // Assert
+        assertEquals(5, result);
+    }
+"
+" public int calculateSquare(int num) {
+        return num * num;
+    }","// Test case for the calculateSquare function
+    @Test
+    public void testCalculateSquare() {
+        // Arrange
+        Example example = new Example();
+        int num = 5;
+
+        // Act
+        int result = example.calculateSquare(num);
+
+        // Assert
+        assertEquals(25, result);
+    }"
+"public boolean isEven(int num) {
+        return num % 2 == 0;
+    }","// Test case for the isEven function
+    @Test
+    public void testIsEven() {
+        // Arrange
+        Example example = new Example();
+
+        // Act
+        boolean result1 = example.isEven(4);
+        boolean result2 = example.isEven(7);
+
+        // Assert
+        assertTrue(result1);
+        assertFalse(result2);
+    }"
+"public String reverseString(String str) {
+        StringBuilder sb = new StringBuilder(str);
+        return sb.reverse().toString();
+    }","// Test case for the reverseString function
+    @Test
+    public void testReverseString() {
+        // Arrange
+        Example example = new Example();
+        String input = ""hello"";
+
+        // Act
+        String result = example.reverseString(input);
+
+        // Assert
+        assertEquals(""olleh"", result);
+    }"
+" public boolean isPalindrome(String str) {
+        StringBuilder sb = new StringBuilder(str);
+        String reversedStr = sb.reverse().toString();
+        return str.equals(reversedStr);
+    }","// Test case for the isPalindrome function
+    @Test
+    public void testIsPalindrome() {
+        // Arrange
+        Example example = new Example();
+
+        // Act
+        boolean result1 = example.isPalindrome(""racecar"");
+        boolean result2 = example.isPalindrome(""hello"");
+
+        // Assert
+        assertTrue(result1);
+        assertFalse(result2);
+    }"
+"public int findFactorial(int num) {
+        if (num == 0 || num == 1) {
+            return 1;
+        }
+        return num * findFactorial(num - 1);
+    }","// Test case for the findFactorial function
+    @Test
+    public void testFindFactorial() {
+        // Arrange
+        Example example = new Example();
+
+        // Act
+        int result1 = example.findFactorial(5);
+        int result2 = example.findFactorial(0);
+
+        // Assert
+        assertEquals(120, result1);
+        assertEquals(1, result2);
+    }"
+"public boolean isPrime(int num) {
+        if (num <= 1) {
+            return false;
+        }
+        for (int i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }"," // Test case for the isPrime function
+    @Test
+    public void testIsPrime() {
+        // Arrange
+        Example example = new Example();
+
+        // Act
+        boolean result1 = example.isPrime(11);
+        boolean result2 = example.isPrime(6);
+
+        // Assert
+        assertTrue(result1);
+        assertFalse(result2);
+    }"
+"public int calculatePower(int base, int exponent) {
+        if (exponent == 0) {
+            return 1;
+        }
+        int result = 1;
+        for (int i = 0; i < exponent; i++) {
+            result *= base;
+        }
+        return result;
+    }","// Test case for the calculatePower function
+    @Test
+    public void testCalculatePower() {
+        // Arrange
+        Example example = new Example();
+        int base = 2;
+        int exponent = 3;
+
+        // Act
+        int result = example.calculatePower(base, exponent);
+
+        // Assert
+        assertEquals(8, result);
+    }"
+"public int countVowels(String str) {
+        int count = 0;
+        for (char c : str.toCharArray()) {
+            if (""aeiouAEIOU"".contains(String.valueOf(c))) {
+                count++;
+            }
+        }
+        return count;
+    }","// Test case for the countVowels function
+    @Test
+    public void testCountVowels() {
+        // Arrange
+        Example example = new Example();
+        String input = ""Hello World"";
+
+        // Act
+        int result = example.countVowels(input);
+
+        // Assert
+        assertEquals(3, result);
+    }"
+"public boolean isPalindrome(String str) {
+        int left = 0;
+        int right = str.length() - 1;
+        while (left < right) {
+            if (str.charAt(left) != str.charAt(right)) {
+                return false;
+            }
+            left++;
+            right--;
+        }
+        return true;
+    }"," // Test case for the isPalindrome function
+    @Test
+    public void testIsPalindrome() {
+        // Arrange
+        Example example = new Example();
+
+        // Act
+        boolean result1 = example.isPalindrome(""racecar"");
+        boolean result2 = example.isPalindrome(""hello"");
+
+        // Assert
+        assertTrue(result1);
+        assertFalse(result2);
+    }"
+"public int findGCD(int num1, int num2) {
+        while(num2 != 0) {
+            int temp = num2;
+            num2 = num1 % num2;
+            num1 = temp;
+        }
+        return num1;
+    }","// Test case for the findGCD function
+    @Test
+    public void testFindGCD() {
+        // Arrange
+        Example example = new Example();
+
+        // Act
+        int result1 = example.findGCD(24, 36);
+        int result2 = example.findGCD(7, 5);
+
+        // Assert
+        assertEquals(12, result1);
+        assertEquals(1, result2);
+    }"
+"public int countWords(String sentence) {
+        String[] words = sentence.split(""\\s+"");
+        return words.length;
+    }","// Test case for the countWords function
+    @Test
+    public void testCountWords() {
+        // Arrange
+        Example example = new Example();
+        String sentence = ""The quick brown fox"";
+
+        // Act
+        int result = example.countWords(sentence);
+
+        // Assert
+        assertEquals(4, result);
+    }"
+" public boolean isPalindrome(String str) {
+        int i = 0;
+        int j = str.length() - 1;
+        while (i < j) {
+            if (str.charAt(i) != str.charAt(j)) {
+                return false;
+            }
+            i++;
+            j--;
+        }
+        return true;
+    }","// Test case for the isPalindrome function
+    @Test
+    public void testIsPalindrome() {
+        // Arrange
+        Example example = new Example();
+
+        // Act
+        boolean result1 = example.isPalindrome(""madam"");
+        boolean result2 = example.isPalindrome(""hello"");
+
+        // Assert
+        assertTrue(result1);
+        assertFalse(result2);
+    }"
+"public int findLargest(int[] nums) {
+        int max = Integer.MIN_VALUE;
+        for (int num : nums) {
+            if (num > max) {
+                max = num;
+            }
+        }
+        return max;
+    }","// Test case for the findLargest function
+    @Test
+    public void testFindLargest() {
+        // Arrange
+        Example example = new Example();
+        int[] nums = {3, 7, 1, 9, 4};
+
+        // Act
+        int result = example.findLargest(nums);
+
+        // Assert
+        assertEquals(9, result);
+    }"
+" public boolean isLeapYear(int year) {
+        if (year % 4 == 0) {
+            if (year % 100 == 0) {
+                return year % 400 == 0;
+            } else {
+                return true;
+            }
+        } else {
+            return false;
+        }
+    }","// Test case for the isLeapYear function
+    @Test
+    public void testIsLeapYear() {
+        // Arrange
+        Example example = new Example();
+
+        // Act
+        boolean result1 = example.isLeapYear(2020);
+        boolean result2 = example.isLeapYear(2021);
+
+        // Assert
+        assertTrue(result1);
+        assertFalse(result2);
+    }"
+"public int findSmallest(int[] nums) {
+        int min = Integer.MAX_VALUE;
+        for (int num : nums) {
+            if (num < min) {
+                min = num;
+            }
+        }
+        return min;
+    }","// Test case for the findSmallest function
+    @Test
+    public void testFindSmallest() {
+        // Arrange
+        Example example = new Example();
+        int[] nums = {7, 2, 5, 1, 9};
+
+        // Act
+        int result = example.findSmallest(nums);
+
+        // Assert
+        assertEquals(1, result);
+    }"
+"public boolean isPalindrome(int num) {
+        int originalNum = num;
+        int reversedNum = 0;
+        while (num != 0) {
+            int digit = num % 10;
+            reversedNum = reversedNum * 10 + digit;
+            num /= 10;
+        }
+        return originalNum == reversedNum;
+    }","// Test case for the isPalindrome function
+    @Test
+    public void testIsPalindrome() {
+        // Arrange
+        Example example = new Example();
+
+        // Act
+        boolean result1 = example.isPalindrome(121);
+        boolean result2 = example.isPalindrome(123);
+
+        // Assert
+        assertTrue(result1);
+        assertFalse(result2);
+    }"
+" public int findAverage(int[] nums) {
+        int sum = 0;
+        for (int num : nums) {
+            sum += num;
+        }
+        return sum / nums.length;
+    }","// Test case for the findAverage function
+    @Test
+    public void testFindAverage() {
+        // Arrange
+        Example example = new Example();
+        int[] nums = {5, 10, 15, 20};
+
+        // Act
+        int result = example.findAverage(nums);
+
+        // Assert
+        assertEquals(12, result);
+    }"
+"public boolean isPrime(int num) {
+        if (num <= 1) {
+            return false;
+        }
+        for (int i = 2; i*i <= num; i++) {
+            if (num % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }","    // Test case for the isPrime function
+    @Test
+    public void testIsPrime() {
+        // Arrange
+        Example example = new Example();
+
+        // Act
+        boolean result1 = example.isPrime(11);
+        boolean result2 = example.isPrime(6);
+
+        // Assert
+        assertTrue(result1);
+        assertFalse(result2);
+    }
+"
+"public int countDigits(int num) {
+        int count = 0;
+        while (num != 0) {
+            num = num / 10;
+            count++;
+        }
+        return count;
+    }","// Test case for the countDigits function
+    @Test
+    public void testCountDigits() {
+        // Arrange
+        Example example = new Example();
+
+        // Act
+        int result1 = example.countDigits(12345);
+        int result2 = example.countDigits(0);
+
+        // Assert
+        assertEquals(5, result1);
+        assertEquals(1, result2);
+    }"
+" public String reverseWords(String sentence) {
+        String[] words = sentence.split(""\\s+"");
+        StringBuilder reversedSentence = new StringBuilder();
+        for (int i = words.length - 1; i >= 0; i--) {
+            reversedSentence.append(words[i]).append("" "");
+        }
+        return reversedSentence.toString().trim();
+    }","// Test case for the reverseWords function
+    @Test
+    public void testReverseWords() {
+        // Arrange
+        Example example = new Example();
+        String sentence = ""hello world"";
+
+        // Act
+        String result = example.reverseWords(sentence);
+
+        // Assert
+        assertEquals(""world hello"", result);
+    }"
+" public boolean isPerfectSquare(int num) {
+        int i = 1;
+        while (num > 0) {
+            num -= i;
+            i += 2;
+        }
+        return num == 0;
+    }"," // Test case for the isPerfectSquare function
+    @Test
+    public void testIsPerfectSquare() {
+        // Arrange
+        Example example = new Example();
+
+        // Act
+        boolean result1 = example.isPerfectSquare(16);
+        boolean result2 = example.isPerfectSquare(14);
+
+        // Assert
+        assertTrue(result1);
+        assertFalse(result2);
+    }"
+"public boolean isAnagram(String str1, String str2) {
+        if (str1.length() != str2.length()) {
+            return false;
+        }
+        int[] letterCounts = new int[256];
+        for (char c : str1.toCharArray()) {
+            letterCounts[c]++;
+        }
+        for (char c : str2.toCharArray()) {
+            if (--letterCounts[c] < 0) {
+                return false;
+            }
+        }
+        return true;
+    }","// Test case for the isAnagram function
+    @Test
+    public void testIsAnagram() {
+        // Arrange
+        Example example = new Example();
+
+        // Act
+        boolean result1 = example.isAnagram(""anagram"", ""nagaram"");
+        boolean result2 = example.isAnagram(""hello"", ""world"");
+
+        // Assert
+        assertTrue(result1);
+        assertFalse(result2);
+    }"
+"public String convertToBinary(int num) {
+        return Integer.toBinaryString(num);
+    }","// Test case for the convertToBinary function
+    @Test
+    public void testConvertToBinary() {
+        // Arrange
+        Example example = new Example();
+
+        // Act
+        String result = example.convertToBinary(5);
+
+        // Assert
+        assertEquals(""101"", result);
+    }"
+"public int countOccurences(String str, char c) {
+        int count = 0;
+        for (char temp : str.toCharArray()) {
+            if (temp == c) {
+                count++;
+            }
+        }
+        return count;
+    }"," // Test case for the countOccurences function
+    @Test
+    public void testCountOccurences() {
+        // Arrange
+        Example example = new Example();
+        String str = ""hello world"";
+        char c = 'o';
+
+        // Act
+        int result = example.countOccurences(str, c);
+
+        // Assert
+        assertEquals(2, result);
+    }"
+"public double divideNumbers(double dividend, double divisor) {
+        if (divisor == 0) {
+            throw new IllegalArgumentException(""Cannot divide by zero"");
+        }
+        return dividend / divisor;
+    }","// Test case for the divideNumbers function
+    @Test(expected = IllegalArgumentException.class)
+    public void testDivideNumbersByZero() {
+        // Arrange
+        Example example = new Example();
+        double dividend = 10;
+        double divisor = 0;
+
+        // Act
+        example.divideNumbers(dividend, divisor);
+        
+        // No Assert needed here for exception testing
+    }"
+"public int findLength(String str) {
+        return str.length();
+    }"," // Test case for the findLength function
+    @Test
+    public void testFindLength() {
+        // Arrange
+        Example example = new Example();
+        String input = ""hello world"";
+
+        // Act
+        int result = example.findLength(input);
+
+        // Assert
+        assertEquals(11, result);
+    }"
+"public boolean isPowerOfTwo(int num) {
+        if (num <= 0) {
+            return false;
+        }
+        return (num & (num - 1)) == 0;
+    }","// Test case for the isPowerOfTwo function
+    @Test
+    public void testIsPowerOfTwo() {
+        // Arrange
+        Example example = new Example();
+
+        // Act
+        boolean result1 = example.isPowerOfTwo(8);
+        boolean result2 = example.isPowerOfTwo(5);
+
+        // Assert
+        assertTrue(result1);
+        assertFalse(result2);
+    }"
+"public int findSquareRoot(int num) {
+        return (int)Math.sqrt(num);
+    }","// Test case for the findSquareRoot function
+    @Test
+    public void testFindSquareRoot() {
+        // Arrange
+        Example example = new Example();
+        int num = 16;
+
+        // Act
+        int result = example.findSquareRoot(num);
+
+        // Assert
+        assertEquals(4, result);
+    }"
+" public boolean isPalindrome(String str) {
+        String reversedStr = new StringBuilder(str).reverse().toString();
+        return str.equals(reversedStr);
+    }","// Test case for the isPalindrome function
+    @Test
+    public void testIsPalindrome() {
+        // Arrange
+        Example example = new Example();
+
+        // Act
+        boolean result1 = example.isPalindrome(""radar"");
+        boolean result2 = example.isPalindrome(""hello"");
+
+        // Assert
+        assertTrue(result1);
+        assertFalse(result2);
+    }"
+" public int getAbsValue(int num) {
+        return num >= 0 ? num : -num;
+    }","// Test case for the getAbsValue function
+    @Test
+    public void testGetAbsValue() {
+        // Arrange
+        Example example = new Example();
+
+        // Act
+        int result1 = example.getAbsValue(5);
+        int result2 = example.getAbsValue(-8);
+
+        // Assert
+        assertEquals(5, result1);
+        assertEquals(8, result2);
+    }"
+"public boolean isAnagram(String str1, String str2) {
+        char[] arr1 = str1.toCharArray();
+        char[] arr2 = str2.toCharArray();
+        Arrays.sort(arr1);
+        Arrays.sort(arr2);
+        return Arrays.equals(arr1, arr2);
+    }","// Test case for the isAnagram function
+    @Test
+    public void testIsAnagram() {
+        // Arrange
+        Example example = new Example();
+
+        // Act
+        boolean result1 = example.isAnagram(""listen"", ""silent"");
+        boolean result2 = example.isAnagram(""hello"", ""world"");
+
+        // Assert
+        assertTrue(result1);
+        assertFalse(result2);
+    }"
+"public int findAbsoluteValue(int num) {
+        return Math.abs(num);
+    }","// Test case for the findAbsoluteValue function
+    @Test
+    public void testFindAbsoluteValue() {
+        // Arrange
+        Example example = new Example();
+
+        // Act
+        int result1 = example.findAbsoluteValue(-5);
+        int result2 = example.findAbsoluteValue(10);
+
+        // Assert
+        assertEquals(5, result1);
+        assertEquals(10, result2);
+    }"
+"public boolean isPalindrome(String str) {
+        StringBuilder sb = new StringBuilder(str);
+        return str.equals(sb.reverse().toString());
+    }","// Test case for the isPalindrome function
+    @Test
+    public void testIsPalindrome() {
+        // Arrange
+        Example example = new Example();
+
+        // Act
+        boolean result1 = example.isPalindrome(""madam"");
+        boolean result2 = example.isPalindrome(""hello"");
+
+        // Assert
+        assertTrue(result1);
+        assertFalse(result2);
+    }"
+" public String reverseSentence(String sentence) {
+        String[] words = sentence.split(""\\s+"");
+        StringBuilder reversed = new StringBuilder();
+        for (int i = words.length - 1; i >= 0; i--) {
+            reversed.append(words[i]).append("" "");
+        }
+        return reversed.toString().trim();
+    }","// Test case for the reverseSentence function
+    @Test
+    public void testReverseSentence() {
+        // Arrange
+        Example example = new Example();
+
+        // Act
+        String result = example.reverseSentence(""hello world"");
+
+        // Assert
+        assertEquals(""world hello"", result);
+    }"
+"public int findMedian(int[] nums) {
+        Arrays.sort(nums);
+        int n = nums.length;
+        if (n % 2 == 0) {
+            return (nums[n/2 - 1] + nums[n/2]) / 2;
+        } else {
+            return nums[n/2];
+        }
+    }","// Test case for the findMedian function
+    @Test
+    public void testFindMedian() {
+        // Arrange
+        Example example = new Example();
+        int[] nums1 = {1, 2, 3, 4, 5};
+        int[] nums2 = {1, 2, 3, 4, 5, 6};
+
+        // Act
+        int result1 = example.findMedian(nums1);
+        int result2 = example.findMedian(nums2);
+
+        // Assert
+        assertEquals(3, result1);
+        assertEquals(3, result2);
+    }"
+"public boolean isPowerOfThree(int num) {
+        return num > 0 && Math.pow(3, (Math.log(num) / Math.log(3))) == num;
+    }","// Test case for the isPowerOfThree function
+    @Test
+    public void testIsPowerOfThree() {
+        // Arrange
+        Example example = new Example();
+
+        // Act
+        boolean result1 = example.isPowerOfThree(27);
+        boolean result2 = example.isPowerOfThree(35);
+
+        // Assert
+        assertTrue(result1);
+        assertFalse(result2);
+    }"
+"public boolean isPalindrome(String str) {
+        int i = 0, j = str.length() - 1;
+        while (i < j) {
+            if (str.charAt(i) != str.charAt(j)) {
+                return false;
+            }
+            i++;
+            j--;
+        }
+        return true;
+    }","// Test case for the isPalindrome function
+    @Test
+    public void testIsPalindrome() {
+        // Arrange
+        Example example = new Example();
+
+        // Act
+        boolean result1 = example.isPalindrome(""racecar"");
+        boolean result2 = example.isPalindrome(""hello"");
+
+        // Assert
+        assertTrue(result1);
+        assertFalse(result2);
+    }"
+"public int countUpperCaseLetters(String str) {
+        int count = 0;
+        for (char c : str.toCharArray()) {
+            if (Character.isUpperCase(c)) {
+                count++;
+            }
+        }
+        return count;
+    }","// Test case for the countUpperCaseLetters function
+    @Test
+    public void testCountUpperCaseLetters() {
+        // Arrange
+        Example example = new Example();
+
+        // Act
+        int result1 = example.countUpperCaseLetters(""Hello World"");
+        int result2 = example.countUpperCaseLetters(""abc123"");
+
+        // Assert
+        assertEquals(2, result1);
+        assertEquals(0, result2);
+    }"
+"public boolean isPowerOfTen(int num) {
+        if (num <= 0) {
+            return false;
+        }
+        while (num % 10 == 0) {
+            num /= 10;
+        }
+        return num == 1;
+    }","// Test case for the isPowerOfTen function
+    @Test
+    public void testIsPowerOfTen() {
+        // Arrange
+        Example example = new Example();
+
+        // Act
+        boolean result1 = example.isPowerOfTen(1000);
+        boolean result2 = example.isPowerOfTen(36);
+
+        // Assert
+        assertTrue(result1);
+        assertFalse(result2);
+    }"
+" public double calculateAverage(int[] nums) {
+        double sum = 0;
+        for (int num : nums) {
+            sum += num;
+        }
+        return sum / nums.length;
+    }","// Test case for the calculateAverage function
+    @Test
+    public void testCalculateAverage() {
+        // Arrange
+        Example example = new Example();
+        int[] nums = {5, 10, 15};
+
+        // Act
+        double result = example.calculateAverage(nums);
+
+        // Assert
+        assertEquals(10.0, result, 0);
+    }"
+"public boolean isMultipleOfThree(int num) {
+        return num % 3 == 0;
+    }","// Test case for the isMultipleOfThree function
+    @Test
+    public void testIsMultipleOfThree() {
+        // Arrange
+        Example example = new Example();
+
+        // Act
+        boolean result1 = example.isMultipleOfThree(9);
+        boolean result2 = example.isMultipleOfThree(7);
+
+        // Assert
+        assertTrue(result1);
+        assertFalse(result2);
+    }"
+" public int findMax(int[] nums) {
+        int max = Integer.MIN_VALUE;
+        for (int num : nums) {
+            if (num > max) {
+                max = num;
+            }
+        }
+        return max;
+    }","// Test case for the findMax function
+    @Test
+    public void testFindMax() {
+        // Arrange
+        Example example = new Example();
+        int[] nums = {3, 7, 1, 9, 4};
+
+        // Act
+        int result = example.findMax(nums);
+
+        // Assert
+        assertEquals(9, result);
+    }"
+"public boolean isEven(int num) {
+        return num % 2 == 0;
+    }","// Test case for the isEven function
+    @Test
+    public void testIsEven() {
+        // Arrange
+        Example example = new Example();
+
+        // Act
+        boolean result1 = example.isEven(4);
+        boolean result2 = example.isEven(7);
+
+        // Assert
+        assertTrue(result1);
+        assertFalse(result2);
+    }"
+"public int reverseNumber(int num) {
+        int reversed = 0;
+        while (num != 0) {
+            int digit = num % 10;
+            reversed = reversed * 10 + digit;
+            num /= 10;
+        }
+        return reversed;
+    }","// Test case for the reverseNumber function
+    @Test
+    public void testReverseNumber() {
+        // Arrange
+        Example example = new Example();
+
+        // Act
+        int result1 = example.reverseNumber(123);
+        int result2 = example.reverseNumber(987654);
+
+        // Assert
+        assertEquals(321, result1);
+        assertEquals(456789, result2);
+    }"
+"public boolean isPrime(int num) {
+        if (num <= 1) {
+            return false;
+        }
+        for (int i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }","// Test case for the isPrime function
+    @Test
+    public void testIsPrime() {
+        // Arrange
+        Example example = new Example();
+
+        // Act
+        boolean result1 = example.isPrime(17);
+        boolean result2 = example.isPrime(10);
+
+        // Assert
+        assertTrue(result1);
+        assertFalse(result2);
+    }"
+"public boolean isMultipleOfFive(int num) {
+        return num % 5 == 0;
+    }"," // Test case for the isMultipleOfFive function
+    @Test
+    public void testIsMultipleOfFive() {
+        // Arrange
+        Example example = new Example();
+
+        // Act
+        boolean result1 = example.isMultipleOfFive(20);
+        boolean result2 = example.isMultipleOfFive(13);
+
+        // Assert
+        assertTrue(result1);
+        assertFalse(result2);
+    }"
+" public String reverseString(String str) {
+        String reversed = """";
+        for (int i = str.length() - 1; i >= 0; i--) {
+            reversed += str.charAt(i);
+        }
+        return reversed;
+    }","// Test case for the reverseString function
+    @Test
+    public void testReverseString() {
+        // Arrange
+        Example example = new Example();
+
+        // Act
+        String result = example.reverseString(""hello"");
+
+        // Assert
+        assertEquals(""olleh"", result);
+    }"
+"public boolean isMultipleOfFour(int num) {
+        return num % 4 == 0;
+    }","// Test case for the isMultipleOfFour function
+    @Test
+    public void testIsMultipleOfFour() {
+        // Arrange
+        Example example = new Example();
+
+        // Act
+        boolean result1 = example.isMultipleOfFour(16);
+        boolean result2 = example.isMultipleOfFour(7);
+
+        // Assert
+        assertTrue(result1);
+        assertFalse(result2);
+    }
+"
+"public String concatenateStrings(String str1, String str2) {
+        return str1 + str2;
+    }","// Test case for the concatenateStrings function
+    @Test
+    public void testConcatenateStrings() {
+        // Arrange
+        Example example = new Example();
+
+        // Act
+        String result = example.concatenateStrings(""Hello"", ""World"");
+
+        // Assert
+        assertEquals(""HelloWorld"", result);
+    }"
+"public boolean isOdd(int num) {
+        return num % 2 != 0;
+    }","// Test case for the isOdd function
+    @Test
+    public void testIsOdd() {
+        // Arrange
+        Example example = new Example();
+
+        // Act
+        boolean result1 = example.isOdd(5);
+        boolean result2 = example.isOdd(10);
+
+        // Assert
+        assertTrue(result1);
+        assertFalse(result2);
+    }"
+"public boolean isEven(int num) {
+        return num % 2 == 0;
+    }","// Test case for the isEven function
+    @Test
+    public void testIsEven() {
+        // Arrange
+        Example example = new Example();
+
+        // Act
+        boolean result1 = example.isEven(4);
+        boolean result2 = example.isEven(7);
+
+        // Assert
+        assertTrue(result1);
+        assertFalse(result2);
+    }"
+"public int findSquare(int num) {
+        return num * num;
+    }","// Test case for the findSquare function
+    @Test
+    public void testFindSquare() {
+        // Arrange
+        Example example = new Example();
+
+        // Act
+        int result = example.findSquare(5);
+
+        // Assert
+        assertEquals(25, result);
+    }"
+" public boolean isPositive(int num) {
+        return num > 0;
+    }","// Test case for the isPositive function
+    @Test
+    public void testIsPositive() {
+        // Arrange
+        Example example = new Example();
+
+        // Act
+        boolean result1 = example.isPositive(5);
+        boolean result2 = example.isPositive(-3);
+
+        // Assert
+        assertTrue(result1);
+        assertFalse(result2);
+    }"
+"public int findAbsoluteValue(int num) {
+        return Math.abs(num);
+    }"," // Test case for the findAbsoluteValue function
+    @Test
+    public void testFindAbsoluteValue() {
+        // Arrange
+        Example example = new Example();
+
+        // Act
+        int result1 = example.findAbsoluteValue(5);
+        int result2 = example.findAbsoluteValue(-8);
+
+        // Assert
+        assertEquals(5, result1);
+        assertEquals(8, result2);
+    }"
+"public int countChars(String str) {
+        return str.length();
+    }","// Test case for the countChars function
+    @Test
+    public void testCountChars() {
+        // Arrange
+        Example example = new Example();
+
+        // Act
+        int result1 = example.countChars(""Hello"");
+        int result2 = example.countChars(""Test"");
+
+        // Assert
+        assertEquals(5, result1);
+        assertEquals(4, result2);
+    }"
+"public int findTotal(int[] nums) {
+        int total = 0;
+        for (int num : nums) {
+            total += num;
+        }
+        return total;
+    }","// Test case for the findTotal function
+    @Test
+    public void testFindTotal() {
+        // Arrange
+        Example example = new Example();
+        int[] nums = {1, 2, 3, 4, 5};
+
+        // Act
+        int result = example.findTotal(nums);
+
+        // Assert
+        assertEquals(15, result);
+    }"
+"public boolean isMultipleOfSeven(int num) {
+        return num % 7 == 0;
+    }","// Test case for the isMultipleOfSeven function
+    @Test
+    public void testIsMultipleOfSeven() {
+        // Arrange
+        Example example = new Example();
+
+        // Act
+        boolean result1 = example.isMultipleOfSeven(14);
+        boolean result2 = example.isMultipleOfSeven(10);
+
+        // Assert
+        assertTrue(result1);
+        assertFalse(result2);
+    }"
+" public boolean isOdd(int num) {
+        return num % 2 != 0;
+    }","// Test case for the isOdd function
+    @Test
+    public void testIsOdd() {
+        // Arrange
+        Example example = new Example();
+
+        // Act
+        boolean result1 = example.isOdd(5);
+        boolean result2 = example.isOdd(10);
+
+        // Assert
+        assertTrue(result1);
+        assertFalse(result2);
+    }"
+"public boolean isNegative(int num) {
+        return num < 0;
+    }","// Test case for the isNegative function
+    @Test
+    public void testIsNegative() {
+        // Arrange
+        Example example = new Example();
+
+        // Act
+        boolean result1 = example.isNegative(-5);
+        boolean result2 = example.isNegative(10);
+
+        // Assert
+        assertTrue(result1);
+        assertFalse(result2);
+    }"
+"public int findDifference(int a, int b) {
+        return a - b;
+    }","// Test case for the findDifference function
+    @Test
+    public void testFindDifference() {
+        // Arrange
+        Example example = new Example();
+
+        // Act
+        int result = example.findDifference(10, 5);
+
+        // Assert
+        assertEquals(5, result);
+    }"
+" public boolean isPositive(int num) {
+        return num > 0;
+    }"," // Test case for the isPositive function
+    @Test
+    public void testIsPositive() {
+        // Arrange
+        Example example = new Example();
+
+        // Act
+        boolean result1 = example.isPositive(5);
+        boolean result2 = example.isPositive(-3);
+
+        // Assert
+        assertTrue(result1);
+        assertFalse(result2);
+    }"
+"public int findSum(int a, int b) {
+        return a + b;
+    }
+","// Test case for the findSum function
+    @Test
+    public void testFindSum() {
+        // Arrange
+        Example example = new Example();
+
+        // Act
+        int result = example.findSum(3, 4);
+
+        // Assert
+        assertEquals(7, result);
+    }"
+"public boolean isOdd(int num) {
+        return num % 2 != 0;
+    }","// Test case for the isOdd function
+    @Test
+    public void testIsOdd() {
+        // Arrange
+        Example example = new Example();
+
+        // Act
+        boolean result1 = example.isOdd(5);
+        boolean result2 = example.isOdd(10);
+
+        // Assert
+        assertTrue(result1);
+        assertFalse(result2);
+    }"
+"public int findQuotient(int dividend, int divisor) {
+        return dividend / divisor;
+    }","// Test case for the findQuotient function
+    @Test
+    public void testFindQuotient() {
+        // Arrange
+        Example example = new Example();
+
+        // Act
+        int result = example.findQuotient(10, 2);
+
+        // Assert
+        assertEquals(5, result);
+    }"
+"public int findMin(int a, int b) {
+        return Math.min(a, b);
+    }","// Test case for the findMin function
+    @Test
+    public void testFindMin() {
+        // Arrange
+        Example example = new Example();
+
+        // Act
+        int result = example.findMin(5, 3);
+
+        // Assert
+        assertEquals(3, result);
+    }"
+"public boolean isNegative(int num) {
+        return num < 0;
+    }","// Test case for the isNegative function
+    @Test
+    public void testIsNegative() {
+        // Arrange
+        Example example = new Example();
+
+        // Act
+        boolean result1 = example.isNegative(-5);
+        boolean result2 = example.isNegative(10);
+
+        // Assert
+        assertTrue(result1);
+        assertFalse(result2);
+    }"

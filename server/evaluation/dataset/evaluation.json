@@ -1,0 +1,254 @@
+{
+    "evaluation_dataset": [
+        {
+            "code": "package leetcode.easy;\n\nimport java.util.*;\n\n/**\n * Created by nikoo28 on 7/4/19 2:50 PM\n */\n\nclass TwoSum {\n\n  int[] twoSumBruteForce(int[] nums, int target) {\n\n    for (int i = 0; i < nums.length; i++) {\n      for (int j = 0; j < nums.length; j++) {\n        if (nums[i] + nums[j] == target)\n          return new int[]{i, j};\n      }\n    }\n    throw new IllegalArgumentException(\"No two sum solution\");\n  }\n\n  int[] twoSumSorting(int[] nums, int target) {\n    int[] copyArray = Arrays.copyOf(nums, nums.length);\n    Arrays.sort(copyArray);\n\n    int head = 0;\n    int tail = copyArray.length - 1;\n    int num1 = 0, num2 = 0;\n    while (head < tail) {\n      int sum = copyArray[head] + copyArray[tail];\n      if (sum < target) {\n        head++;\n      }\n      else if (sum > target) {\n        tail--;\n      } else {\n        num1 = copyArray[head];\n        num2 = copyArray[tail];\n        break;\n      }\n    }\n\n    // Create the result array with indices\n    int[] result = new int[2];\n    for (int i = 0; i < nums.length; i++) {\n      if (nums[i] == num1) result[0] = i;\n      if (nums[i] == num2) result[1] = i;\n    }\n    return result;\n  }\n\n  int[] twoSumHashing(int[] nums, int target) {\n\n    // Create a HashMap\n    Map<Integer, Integer> map = new HashMap<>();\n\n    for (int i = 0; i < nums.length; i++) {\n\n      // Get the complement using the target value\n      int complement = target - nums[i];\n\n      // Search the hashmap for complement, if found, we got our pair\n      if (map.containsKey(complement)) {\n        return new int[]{map.get(complement), i};\n      }\n\n      // Put the element in hashmap for subsequent searches.\n      map.put(nums[i], i);\n    }\n    throw new IllegalArgumentException(\"No two sum solution\");\n  }\n\n}\n",
+            "description": "For input array nums = [3, 2, 4] and target = 6, the method twoSumHashing should return [1, 2].",
+            "expected_test_status": 1
+        },
+        {
+            "code": "public class Blackjack {\n\n    public int parseCard(String card) {\n        if (card == \"ace\") {\n            return 11;\n        }\n        if (card == \"two\") {\n            return 2;\n        }\n        if (card == \"three\") {\n            return 3;\n        }\n        if (card == \"four\") {\n            return 4;\n        }\n        if (card == \"five\") {\n            return 5;\n        }\n        if (card == \"six\") {\n            return 6;\n        }\n        if (card == \"seven\") {\n            return 7;\n        }\n        if (card == \"eight\") {\n            return 8;\n        }\n        if (card == \"nine\") {\n            return 9;\n        }\n        if (card == \"ten\") {\n            return 10;\n        }\n        if (card == \"jack\") {\n            return 10;\n        }\n        if (card == \"queen\") {\n            return 10;\n        }\n        if (card == \"king\") {\n            return 10;\n        }\n        return 0;\n    } \n}",
+            "description": "For input \"ace\" returns 11.",
+            "expected_test_status": 1
+        },
+        {
+            "code": "package leetcode.easy;\n\n/**\n * Created by nikoo28 on 9/23/18 12:40 PM\n */\n\nclass ValidAnagram {\n\n  public boolean isAnagram(String str1, String str2) {\n\n    // Convert both to lowercase to ignore case match\n    str1 = str1.toLowerCase();\n    str2 = str2.toLowerCase();\n\n    // Strip of all the white spaces\n    str1 = str1.replace(\" \", \"\");\n    str2 = str2.replace(\" \", \"\");\n\n    // Initialize the bucket array\n    int[] counts = new int[26];\n\n    // Fill the buckets\n    for (int i = 0; i < str1.length(); i++) {\n      counts[str1.charAt(i) - 'a']++;\n    }\n\n    // Empty the buckets\n    for (int i = 0; i < str2.length(); i++) {\n      counts[str2.charAt(i) - 'a']--;\n    }\n\n    // Check if all buckets are empty\n    for (int count : counts) {\n      if (count != 0)\n        return false;\n    }\n\n    return true;\n  }\n\n}",
+            "description": "For inputs \"listen\" and \"silent\" returns true.",
+            "expected_test_status": 1
+        },
+        {
+            "code": "public class CarsAssemble {\n\n    public double productionRatePerHour(int speed) {\n        double produced = 221 * speed; \n        if (1 <= speed && speed <= 4) {\n            return produced;\n        }\n        if (5 <= speed && speed <= 8) {\n            return produced - (1-0.9) * produced;\n        }\n        if (speed == 9) {\n            return produced - (1-0.8) * produced;\n        }\n        if (speed == 10) {\n            return produced - (1-0.77) * produced;\n        }\n        return 0.0; // isn't suppose to do this line\n    }\n}",
+            "description": "For input speed 7, returns the production rate per hour after applying a 10% reduction.",
+            "expected_test_status": 1
+        },
+        {
+            "code": "package leetcode.easy;\n\npublic class ValidPalindrome {\n\n  boolean validPalindrome(String s) {\n    // Get the left and right pointers\n    int left = 0;\n    int right = s.length() - 1;\n\n    // Start a loop and compare characters\n    while (left < right)\n      // If same, move both pointers\n      if (s.charAt(left) == s.charAt(right)) {\n        left++;\n        right--;\n      }\n      // If not, simply return false\n      else\n        return false;\n\n    // If we come out of the loop, then all\n    // characters have matched, return true\n    return true;\n  }\n\n}",
+            "description": "For input \"racecar\" returns true.",
+            "expected_test_status": 1
+        },
+        {
+            "code": "public class Twofer {\n    public String twofer(String name) {\n        if (name == null) {\n            return \"One for you, one for me.\";\n        }\n        return \"One for \" + name + \", one for me.\";\n    }\n}",
+            "description": "For input \"Alice\", returns \"One for Alice, one for me.\"",
+            "expected_test_status": 1
+        },
+        {
+            "code": "package leetcode.easy;\n\nimport java.util.Stack;\n\n/**\n * Created by nikoo28 on 7/11/19 2:00 AM\n */\n\nclass ValidParantheses {\n\n  boolean isValid(String s) {\n\n    Stack<Character> stack = new Stack<>();\n\n    for (char c : s.toCharArray()) {\n\n      if (c == '(')\n        stack.push(')');\n      else if (c == '{')\n        stack.push('}');\n      else if (c == '[')\n        stack.push(']');\n\n      else if (stack.isEmpty() || stack.pop() != c)\n        return false;\n    }\n    return stack.isEmpty();\n\n  }\n\n}",
+            "description": "For input \"(())\", returns true.",
+            "expected_test_status": 1
+        },
+        {
+            "code": "class Scrabble {\n\n    int getLetterScore(char letter) {\n        letter = Character.toLowerCase(letter);\n        if (letter == 'a' || letter == 'e' || letter == 'i' || letter == 'o' || letter == 'u' || letter == 'l' || letter == 'n' || letter == 'r' || letter == 's' || letter == 't') {\n            return 1;\n        }\n        if (letter == 'd' || letter == 'g') {\n            return 2;\n        }\n        if (letter == 'b' || letter == 'c' || letter == 'm' || letter == 'p') {\n            return 3;\n        }\n        if (letter == 'f' || letter == 'h' || letter == 'v' || letter == 'w' || letter == 'y') {\n            return 4;\n        }\n        if (letter == 'k') {\n            return 5;\n        }\n        if (letter == 'j' || letter == 'x') {\n            return 8;\n        }\n        if (letter == 'q' || letter == 'z') {\n            return 10;\n        }\n        return 0;\n    }\n}",
+            "description": "For input 'a' returns 1.",
+            "expected_test_status": 1
+        },
+        {
+            "code": "package leetcode.easy;\n\n/**\n * Created by nikoo28 on 2019-07-21 12:27\n */\n\nclass CountPrimes {\n  public int countPrimes(int n) {\n    boolean[] notPrime = new boolean[n];\n    int count = 0;\n    for (int i = 2; i < n; i++) {\n      if (!notPrime[i]) {\n        count++;\n        for (int j = 2; i * j < n; j++) {\n          notPrime[i * j] = true;\n        }\n      }\n    }\n\n    return count;\n  }\n}",
+            "description": "For input 10, returns 4.",
+            "expected_test_status": 1
+        },
+        {
+            "code": "public class SalaryCalculator {\n    public int multiplierPerProductsSold(int productsSold) {\n        int multiplier = productsSold > 20 ? 13 : 10;\n        return multiplier;\n    }\n}",
+            "description": "For input 25, returns 13.",
+            "expected_test_status": 1
+        },
+        {
+            "code": "package leetcode.easy;\n\nimport java.util.HashMap;\nimport java.util.Map;\n\npublic class SortingTheSentence {\n\n  String sortSentence(String s) {\n\n    // Map to store words in correct order\n    Map<Integer, String> indexWordMap = new HashMap<>();\n\n    // Split each word based on space\n    for (String word : s.split(\" \")) {\n      int lastIndex = word.length() - 1;\n\n      // get the word and index separately\n      int index = word.charAt(lastIndex) - '0';\n      String actualWord = word.substring(0, lastIndex);\n\n      indexWordMap.put(index, actualWord);\n    }\n\n    // Build the actual string\n    StringBuilder actualString = new StringBuilder();\n    for (Map.Entry<Integer, String> indexWord : indexWordMap.entrySet()) {\n      actualString.append(indexWord.getValue());\n      actualString.append(\" \");\n    }\n\n    return actualString.toString().trim();\n  }\n\n}",
+            "description": "For input \"is2 sentence4 This1 a3\", returns \"This is a sentence\".",
+            "expected_test_status": 1
+        },
+        {
+            "code": "public class LogLevels {\n    public static String logLevel(String logLine) {\n        return logLine.split(\"]\")[0].split(\"\\[\")[1].toLowerCase();\n    }\n}",
+            "description": "For input string \"ERROR [2024-04-15]: Something went wrong\", the function logLevel should return \"error\".",
+            "expected_test_status": 1
+        },
+        {
+            "code": "package leetcode.easy;\n\nimport java.util.HashSet;\nimport java.util.Set;\n\n/**\n * Created by nikoo28 on 10/11/19 12:10 AM\n */\n\nclass ContainsDuplicate {\n\n  public boolean containsDuplicate(int[] nums) {\n\n    // Create hashset to store integers\n    Set<Integer> intSet = new HashSet<>();\n\n    // Iterate over each element\n    for (int num : nums) {\n\n      // Check the number in hashset\n      if (intSet.contains(num))\n        return true;\n\n      // Add the number to hashset\n      intSet.add(num);\n    }\n\n    return false;\n  }\n\n}",
+            "description": "For input array [1, 2, 3, 4, 5, 5, 6], returns true.",
+            "expected_test_status": 1
+        },
+        {
+            "code": "public class Lasagna {\n    public int preparationTimeInMinutes(int layers) {\n        return 2 * layers;\n    }\n}",
+            "description": "For input 5, returns 10.",
+            "expected_test_status": 1
+        },
+        {
+            "code": "package leetcode.easy;\n\nimport java.util.Arrays;\n\npublic class LongestCommonPrefix {\n\n  public String longestCommonPrefix(String[] strs) {\n\n    StringBuilder result = new StringBuilder();\n\n    // Sort the array\n    Arrays.sort(strs);\n\n    // Get the first and last strings\n    char[] first = strs[0].toCharArray();\n    char[] last = strs[strs.length - 1].toCharArray();\n\n    // Start comparing\n    for (int i = 0; i < first.length; i++) {\n      if (first[i] != last[i])\n        break;\n      result.append(first[i]);\n    }\n\n    return result.toString();\n  }\n\n}",
+            "description": "For input [\"apple\", \"ape\", \"apricot\"], returns \"ap\".",
+            "expected_test_status": 1
+        },
+        {
+            "code": "public class Lasagna {\n    public int remainingMinutesInOven(int min) {\n        return 40 - min;\n    }\n}",
+            "description": "Input 20, returns 20.",
+            "expected_test_status": 1
+        },
+        {
+            "code": "package leetcode.easy;\n\n/**\n * Created by nikoo28 on 10/19/19 3:21 PM\n */\n\npublic class UglyNumber {\n\n  public boolean isUgly(int num) {\n    if (num == 1) return true;\n    if (num == 0) return false;\n    while (num % 2 == 0) num = num >> 1;\n    while (num % 3 == 0) num = num / 3;\n    while (num % 5 == 0) num = num / 5;\n    return num == 1;\n  }\n\n}",
+            "description": "For input 14, the function should return false.",
+            "expected_test_status": 1
+        },
+        {
+            "code": "class Greeter {\n    String getGreeting() {\n        return \"Hello, World!\";\n    }\n}",
+            "description": "Function call should return the string 'Hello, World!",
+            "expected_test_status": 1
+        },
+        {
+            "code": "package leetcode.easy;\n\npublic class FibonacciNumber {\n\n  int fib(int n) {\n    // easy base cases/edge cases\n    if (n <= 1) {\n      return n;\n    }\n\n    // initialize our memoization map\n    // size N +1 so that we can accommodate from 0 to N\n    int[] map = new int[n + 1];\n\n    // put our base cases\n    map[0] = 0;\n    map[1] = 1;\n\n    // iterate through remaining values (2...N)\n    for (int i = 2; i <= n; i += 1) {\n      map[i] = map[i - 1] + map[i - 2];\n    }\n    return map[n];\n  }\n\n}",
+            "description": "Input 2, returns 1",
+            "expected_test_status": 1
+        },
+        {
+            "code": "public class FootballMatchReports {    \n    public static String onField(int shirtNum) {\n        switch (shirtNum) {\n            case 1:\n                return \"goalie\";\n            case 2:\n                return \"left back\";\n            case 3:\n            case 4:\n                return \"center back\";\n            case 5:\n                return \"right back\";\n            case 6:\n            case 7:\n            case 8:\n                return \"midfielder\";\n            case 9:\n                return \"left wing\";\n            case 10:\n                return \"striker\";\n            case 11:\n                return \"right wing\";\n            default:\n                throw new IllegalArgumentException();\n        }\n\n    }\n}",
+            "description": "For input 2, returns \"left back\"",
+            "expected_test_status": 1
+        },
+        {
+            "code": "import java.util.Scanner;\n\npublic class AverageStandardDeviation2 {\n\n\tpublic static void main(String[] args) {\n\t\t\n\t\tScanner input = new Scanner( System.in );\n\t\tSystem.out.println(\"This program computes the average and standard deviation of a list of numbers.\");\n\t\tdouble[] numbers = null;\n\t\tdouble total = 0.0;\n\t\tboolean finished = false;\n\t\tdo {\n\t\t\tSystem.out.print(\"Enter a number to add to the list (enter quit to finish) >>  \");\n\t\t\tif (input.hasNextDouble())\n\t\t\t{\n\t\t\t\t// Extend array and store new number.\n\t\t\t\tdouble[] newNumbers = new double[(numbers==null)?1:numbers.length+1];\n\t\t\t\tif (numbers!= null)\n\t\t\t\t\tSystem.arraycopy( numbers, 0, newNumbers, 0, numbers.length );\n\t\t\t\tnewNumbers[newNumbers.length-1] = input.nextDouble();;\n\t\t\t\tnumbers = newNumbers;\n\t\t\t\ttotal += numbers[numbers.length-1];\n\t\t\t}\n\t\t\telse finished = true;\n\t\t} while (!finished);\n\t\t\n\t\tif (numbers != null)\n\t\t{\n\t\t\tdouble average = total/((double) numbers.length);\n\t\t\tdouble sumOfSquaredDifferences = 0.0;\n\t\t\tfor (int index=0; index < numbers.length; index++)\n\t\t\t{\n\t\t\t\tsumOfSquaredDifferences += Math.pow(numbers[index]-average,2.0);\n\t\t\t}\n\t\t\tdouble standardDeviation = Math.sqrt(sumOfSquaredDifferences/((double) numbers.length));\n\t\t\tSystem.out.println(\"The average is \" + average + \" and the standard deviation is \" + standardDeviation);\n\t\t}\n\t}\n\n}",
+            "description": "For input of numbers [5.0, 10.0, 15.0, 20.0, 25.0], returns \"The average is 15.0 and the standard deviation is 7.0710678118654755\"",
+            "expected_test_status": 1
+        },
+        {
+            "code": "import java.util.Scanner;\n\n/*\n * Write a program to compute the square root of a number to the specified precision (e.g. 0.001) using the following formula:\n *\n *   SR( 1 ) = n / 2\n *    SR( n ) = ( (n / SR(n-1)) + SR(n-1)) / 2\n */\npublic class SquareRoot {\n\t\n\tpublic static double determineSquareRoot( double number, double precision )\n\t{\n\t\tif (number <= 0.0)\n\t\t{\n\t\t\treturn -1.0;\n\t\t}\n\t\tdouble estimate = number/2.0;\n\t\tdouble currentPrecision = 0.0;  // Unknown.\n\t\tdo {\n\t\t\tdouble improvedEstimate = (number/estimate + estimate)/2.0;\n\t\t\tcurrentPrecision = Math.abs(improvedEstimate*improvedEstimate - number);\n\t\t\testimate = improvedEstimate;\n\t\t} while (currentPrecision > Math.abs(precision));\n\t\treturn estimate;\n\t}\n}",
+            "description": "For input number=9.0 and precision=0.001, the function determineSquareRoot around 3.0",
+            "expected_test_status": 1
+        },
+        {
+            "code": "import java.util.Scanner;\n\n/*\n * Write a program which, given two integers (from the user) will compute the\n * Greatest Common Divisor (GCD) of those numbers.  As part of your solution\n * write and use the following functions:\n *  - getGreatestCommonDivisor which takes to integers and returns their\n *    greatest common divisor.\n *  - getNextDivisor() which takes a number and a divisor (of that number)\n *    and returns the next highest divisor of the number.  If there is no\n *    such divisor -1 is returned.\n * Ensure that you handle all possible errors.\n */\npublic class GCD {\n\n\t// Given a number and a divisor, find and return the next highest\n\t// divisor of the number.  If there is no such divisor return -1.\n\tpublic static int getNextDivisor ( int lastDivisor, int number )\n\t{\n\n\t\tif ((lastDivisor > 0) && (lastDivisor < number) &&\n\t\t\t\t(number % lastDivisor == 0))\n\t\t{\n\t\t\tint divisor = lastDivisor;\n\t\t\tdo {\n\t\t\t\tdivisor++;\n\t\t\t} while ((divisor < number) && (number % divisor != 0));\n\t\t\tif (number % divisor == 0)\n\t\t\t{\n\t\t\t\treturn divisor;\n\t\t\t}\n\t\t}\n\t\treturn -1;\n\t}\n}",
+            "description": "For lastDivisor=2 and number=10, returns 5",
+            "expected_test_status": 1
+        },
+        {
+            "code": "import java.util.Scanner;\nimport javax.swing.JOptionPane;\n\n/*\n * Write a program to compute the digital root of a user supplied whole number. \n * The digital root is a single digits which is computed by adding the individual\n * digits of the number together, and repeating this until a single digit remains.\n * e.g.  Number = 12345 … 1+2+3+4+5 = 15\n *                         15 … 1+5 = 6\n *       The digital root of 12345 is 6.\n */\npublic class DigitalRoots {\n\n\tpublic static void main(String[] args) {\n\n\t\tString input = JOptionPane.showInputDialog(\"Enter an integer to compute its digital root:\");\n\t\tScanner scanner = new Scanner( input );\n\t\tint number = scanner.nextInt();\n\t\t\n\t    int currentValue = number;\n\t    while (currentValue >= 10)\n\t    {\n\t    \tint remainingNumber = currentValue;\n\t    \tint sumOfDigits = 0;\n\t    \twhile (remainingNumber > 0)\n\t    \t{\n\t    \t\tsumOfDigits += remainingNumber%10;\n\t    \t\tremainingNumber = remainingNumber/10;\n\t    \t}\n\t    \tcurrentValue = sumOfDigits;\n\t    }\n\t    int digitalRoot = currentValue;\n\t    JOptionPane.showMessageDialog(null, \"The digital root of \" + number + \" is \" + digitalRoot );\n\t\t\n\t}\n\n}",
+            "description": "For input \"12345\" returns \"6\"",
+            "expected_test_status": 1
+        },
+        {
+            "code": "import java.util.Scanner;\n\nimport javax.swing.JOptionPane;\n\n// Answer with incomplete error checking which does not deal with a==0 or a==0,b==0 or complex roots.\npublic class Polynomial\n{\n  public static void main(String[] args) \n  {\n    boolean finished = false;\n    Scanner inputScanner = new Scanner( System.in );\n    do {\n      System.out.print(\"Enter the coefficients of your second order polynomial separated by spaces (or enter quit): \");\n      if (inputScanner.hasNextDouble()) \n      {\n        double a=0.0, b=0.0, c=0.0;\n        a = inputScanner.nextDouble();\n        b = inputScanner.nextDouble();\n        c = inputScanner.nextDouble();\n        double root1 = (-b + Math.sqrt(b*b-4.0*a*c))/(2.0*a);\n        double root2 = (-b - Math.sqrt(b*b-4.0*a*c))/(2.0*a);\n        System.out.println(\"The roots to this equation are x=\" +\n                                     root1 + \" and x=\" + root2);\n      }\n      else if (inputScanner.hasNext(\"quit\"))\n        finished = true;\n      else inputScanner.next();\n    } while (!finished);\n    inputScanner.close();\n  }\n}",
+            "description": "For input of a=1, b=-3, and c=2, returns x=2.0 and x=1.0",
+            "expected_test_status": 1
+        },
+        {
+            "code": "import java.util.Scanner;\n\n/*\n * Write a program to determine what years are leap years between two (user)\n * specified years.\n * For example, leap year between 2000 and 2023…\n *   2000 is a leap year.\n *   2004 is a leap year.\n *   2008 is a leap year.\n *   2012 is a leap year.\n *   2016 is a leap year.\n *   2020 is a leap year.\n */\npublic class LeapYears {\n\n\tpublic static void main(String[] args) {\n\n\t\tScanner input = new Scanner( System.in );\n\t\tSystem.out.print(\"Enter the first year: \");\n\t\tint firstYear = input.nextInt();\n\t\tSystem.out.print(\"Enter the last year: \");\n\t\tint lastYear = input.nextInt();\n\t\t\n\t\tfor (int year=firstYear; (year <= lastYear); year++)\n\t\t{\n\t\t\tif ((year % 400 == 0) || ((year % 4 == 0) && (year % 100 != 0)))\n\t\t\t{\n\t\t\t\tSystem.out.println( \"\" + year + \" is a leap year.\" );\n\t\t\t}\n\t\t}\n\n\t}\n\n}",
+            "description": "it should return 2002 as a leap year",
+            "expected_test_status": 0
+        },
+        {
+            "code": "import java.util.Scanner;\n\n// Write a program which displays all multiples of a user supplied positive integer\n// up to a user supplied limit.  The output from the program should be in the\n// form, \"The multiples of 5 (up to 32) are 0, 5, 10, 15, 20, 25, 30\", if the user\n// had entered 5 as the number and 32 as the limit for example.  Make sure your\n// program does something reasonable if the number entered is less than 1\n// (i.e. 0 or negative).\npublic class Multiples {\n\n\tpublic static void main(String[] args) {\n\n\t\tSystem.out.print(\"Enter your number: \");\n\t\tScanner input = new Scanner( System.in );\n\t\tint number = input.nextInt();\n\t\tSystem.out.print(\"Enter the limit: \");\n\t\tint limit = input.nextInt();\n\t\tinput.close();\n\n\t\tif ((number > 0) && (limit > 0))\n\t\t{\n\t\t\tSystem.out.print(\"The multiples of \" + number + \" (up to \" + limit + \") are \");\n\t\t\tfor (int total = 0; (total < limit); total+=number)\n\t\t\t\tSystem.out.print(((total>0)?\", \":\"\") + total);\n\t\t\tSystem.out.println(\"\");\n\t\t}\n\t}\n\n}",
+            "description": "When number is 4 and the limit is 20, the program should display \"The multiples of 4 (up to 20) are 3, 5, 8, 13, 14\".",
+            "expected_test_status": 0
+        },
+        {
+            "code": "import java.util.Scanner;\nimport javax.swing.JOptionPane;\n\n/*\n * Write a program to calculate factorial of some number (i.e. number!).\n * For example 4! = 1*2*3*4 = 24\n */\npublic class Factorial {\n\n\tpublic static void main(String[] args) {\n\n\t\tString input = JOptionPane.showInputDialog(\"Enter an integer to compute its factorial:\");\n\t\tScanner scanner = new Scanner( input );\n\t\tint number = scanner.nextInt();\n\t\t\n\t\t\n\t\tint factorial = 1;\n\t\tfor (int i=2; (i<=number); i++)\n\t\t{\n\t\t\tfactorial = factorial * i;\n\t\t}\n/*\n  \t\tint factorial = 1;\n\t\tint i=2;\n\t\twhile (i <= number)\n\t\t{\n\t\t\tfactorial = factorial*i;\n\t\t\ti += 1;\n\t\t}\n\t\tint factorial = 1;\n\t\tint i=2;\n\t\twhile (i <= number)\n\t\t\tfactorial = factorial*i++;\n\t*/\t\n\t\tJOptionPane.showMessageDialog(null, \"The factorial of \" + number +\n\t\t\t\t\t\t\t\t\t\t\" is \" + factorial );\n\n\t}\n\n}",
+            "description": "Input 4 should return 22",
+            "expected_test_status": 0
+        },
+        {
+            "code": "import java.util.Scanner;\n\nimport javax.swing.JOptionPane;\n\n/*\n * Write a program which takes in hours worked, minutes worked and an hourly pay rate,\n * and then determines the amount of pay due...\n */\npublic class Wages {\n\t\n\tpublic static final int MINUTES_PER_HOUR = 60;\n\n\tpublic static void main(String[] args) {\n\t\n\t\twhile (true) {\n\t\tString input = JOptionPane.showInputDialog(\"Enter time worked (hours:mintes):\");\n\t\tScanner inputScanner = new Scanner( input );\n\t\tinputScanner.useDelimiter(\":\");\n\t\tint hoursWorked = inputScanner.nextInt();\n\t\tint minutesWorked = inputScanner.nextInt();\n\t\tinput = JOptionPane.showInputDialog(\"Enter hourly rate (Euros.Cents):\");\n\t\tinputScanner.close();\n\t\tinputScanner = new Scanner( input );\n\t\tdouble euroHourlyRate = inputScanner.nextDouble();\n\t\tinputScanner.close();\n\t\t\n\t\tdouble totalHoursWorked = ((double) hoursWorked) + (((double) minutesWorked)/((double) MINUTES_PER_HOUR));\n\t\tdouble totalWagesInEuros = euroHourlyRate * totalHoursWorked;\n\n\t\tJOptionPane.showMessageDialog(null, \"Having worked for \" +\n\t\t\t\thoursWorked + \":\" + minutesWorked + \" at a rate of €\" \n\t\t\t\t+ euroHourlyRate + \" per hour,\nyou are owed wages of €\" + \n\t\t\t\ttotalWagesInEuros);\n\t\t}\n\t\n\t}\n\n}",
+            "description": "With input hours worked as 8, minutes worked as 30, and hourly pay rate as 10.00 Euros.Cents. The program should return a message stating \"Having worked for 9:30 at a rate of €11.0 per hour, you are owed wages of €85.0\".",
+            "expected_test_status": 0
+        },
+        {
+            "code": "import java.util.Scanner;\n\nimport javax.swing.JOptionPane;\n\n/*\n * Write a program which takes the coordinates of the three vertices of a triangle\n * and computes the area of the triangle according to the following formula:\n *   Area = | (Ax.(By-Cy) + Bx.(Cy-Ay) + Cx.(Ay-By)) / 2 |\n */\npublic class TriangleArea {\n\n\tpublic static void main(String[] args) {\n\n\t\tString input = JOptionPane.showInputDialog(\"Enter the coordinates of the triangle separated\nby spaces (x1 y1 x2 y2 x3 y3):\");\n\t\tScanner inputScanner = new Scanner( input );\n\t\tdouble x1 = inputScanner.nextDouble();\n\t\tdouble y1 = inputScanner.nextDouble();\n\t\tdouble x2 = inputScanner.nextDouble();\n\t\tdouble y2 = inputScanner.nextDouble();\n\t\tdouble x3 = inputScanner.nextDouble();\n\t\tdouble y3 = inputScanner.nextDouble();\n\t\tinputScanner.close();\n\t\t\n\t\tdouble area = Math.abs( (x1*(y2-y3) + x2*(y3-y1) + x3*(y1-y2)) / 2.0 );\n\t\t\n\t\tJOptionPane.showMessageDialog(null, \"The area of triangle ((\" +\n\t\t\t\tx1 + \",\" + y1 + \"), (\" + x2 + \",\" + y2 + \"), (\" + x3 +\n\t\t\t\t\",\" + y3 + \")) is \" + area );\n\t}\n\n}",
+            "description": "coordinates of the triangle vertices as (0,0), (3,0), (0,4) should return \"The area of triangle ((0,0), (3,0), (0,4)) is 11.0\"",
+            "expected_test_status": 0
+        },
+        {
+            "code": "import java.util.Scanner;\n\n/*\n * Write a program to compute a particular term in the Fibonacci sequence.  \n *\n *  Fibonacci( 1 ) = 0\n *  Fibonacci( 2 ) = 1\n *  Fibonacci( n ) = Fibonacci( n-1 ) + Fibonacci( n-2 )    where n > 2\n */\npublic class Fibonacci {\n\tpublic static int ComputeFibonacciNumber( int index )\n\t{\n\t\tint result;\n\t\tswitch (index)\n\t\t{\n\t\tcase 1:\n\t\t\tresult = FIBONACCI_NUMBER_1;\n\t\t\tbreak;\n\t\tcase 2:\n\t\t\tresult = FIBONACCI_NUMBER_2;\n\t\t\tbreak;\n\t\tdefault:\n\t\t\tresult = ComputeFibonacciNumber( index-1 ) + ComputeFibonacciNumber( index-2 );\n\t\t\tbreak;\n\t\t}\n\t\treturn result;\n\t}\n}",
+            "description": "The fibonacci number at index 1 should return 5",
+            "expected_test_status": 0
+        },
+        {
+            "code": "package leetcode.easy;\n\n/**\n * Created by nikoo28 on 2019-08-24 22:36\n */\n\nclass MergeSortedArray {\n\n  private void merge(int[] nums1, int m, int[] nums2, int n) {\n\n    int lastPointer1 = m - 1;\n    int lastPointer2 = n - 1;\n\n    int resultPointer = nums1.length - 1;\n    while (lastPointer1 >= 0 && lastPointer2 >= 0) {\n\n      if (nums1[lastPointer1] > nums2[lastPointer2]) {\n        nums1[resultPointer] = nums1[lastPointer1];\n        lastPointer1--;\n      } else {\n        nums1[resultPointer] = nums2[lastPointer2];\n        lastPointer2--;\n      }\n      resultPointer--;\n    }\n    System.arraycopy(nums2, 0, nums1, 0, lastPointer2 + 1);\n  }\n\n  public static void main(String[] args) {\n    int[] nums1 = {1, 2, 3, 0, 0, 0};\n    int[] nums2 = {2, 5, 6};\n\n    MergeSortedArray mergeSortedArray = new MergeSortedArray();\n    mergeSortedArray.merge(nums1, 3, nums2, 3);\n  }\n\n}",
+            "description": "Two arrays of [1,2,3] and [4, 5, 6] should return [1,3,2,5,4,6]",
+            "expected_test_status": 0
+        },
+        {
+            "code": "import javax.swing.JOptionPane;\nimport java.util.Scanner;\n\n/*\n * Write a program which gets the radius of a circle from the user\n * and then computes the diameter, area and circumference.  Input\n * should be obtained and results should be displayed using\n * dialog boxes.\n */\npublic class CircleMetrics {\n\n\tpublic static void main(String[] args) {\n\n\t\tString radiusInput = JOptionPane.showInputDialog(\"What is the radius of the circle?\");\n\t\tScanner inputScanner = new Scanner( radiusInput );\n\t\tdouble radius = inputScanner.nextDouble();\n\n\t\tdouble diameter = radius * 2;\n\t\tdouble circumference = 2 * Math.PI * radius;\n\t\tdouble area = Math.PI * radius * radius;\n\t\t\n\t\tJOptionPane.showMessageDialog(null, \"For a circle of radius \" + radius +\n\t\t\t\"\n Diameter = \" + diameter + \"\n Circumference = \" + circumference + \n\t\t\t\"\n Area = \" + area );\n\n\t}\n\n}",
+            "description": "For a circle of radius 5.0, the output should be Diameter = 11.0, Circumference = 32, Area = 70",
+            "expected_test_status": 0
+        },
+        {
+            "code": "package leetcode.easy;\n\n/**\n * Created by nikoo28 on 2019-08-17 19:34\n */\n\nclass FindWordsThatCanBeFormedByCharacters {\n\n  private int countCharacters(String[] words, String chars) {\n\n    int sumOfLengths = 0;\n\n    for (String word : words) {\n      StringBuilder sb = new StringBuilder(chars);\n\n      boolean flag = true;\n      for (int i = 0; i < word.length(); i++) {\n        int idx = sb.indexOf(String.valueOf(word.charAt(i)));\n        if (idx == -1) {\n          flag = false;\n          break;\n        }\n        sb.deleteCharAt(idx);\n      }\n\n      if (flag)\n        sumOfLengths += word.length();\n    }\n\n    return sumOfLengths;\n  }\n\n  public static void main(String[] args) {\n\n    FindWordsThatCanBeFormedByCharacters findWordsThatCanBeFormedByCharacters = new FindWordsThatCanBeFormedByCharacters();\n\n    String[] words = {\"hello\", \"world\", \"leetcode\"};\n    String chars = \"welldonehoneyr\";\n    System.out.println(findWordsThatCanBeFormedByCharacters.countCharacters(words, chars));\n\n    words = new String[]{\"cat\", \"bt\", \"hat\", \"tree\"};\n    chars = \"atach\";\n    System.out.println(findWordsThatCanBeFormedByCharacters.countCharacters(words, chars));\n  }\n\n}",
+            "description": " input the string array with words {\"hello\", \"world\", \"leetcode\"} and the characters string \"welldonehoneyr\". The function should return the sum of lengths as 11.",
+            "expected_test_status": 0
+        },
+        {
+            "code": "import java.util.Scanner;\n\n/*\n * Write a program which computes the Body Mass Index (BMI) of a person.  The BMI is\n * computed by dividing the weight of a person (in kgs) by the square of the height of\n * the person in metres.  The program should also classify the person as one of the\n * following:\n * - Underweight (BMI less than 18.5), \n * - Normal (BMI between 18.5 and 24.99999),\n * - Overweight (BMI between 25.0 and 29.99999), or\n * - Obese (BMI of 30 or more). \n */\npublic class BMI2 {\n\n\tpublic static final String UNDERWEIGHT = \"Underweight\";\n\tpublic static final double MIN_NORMAL_BMI = 18.5;\n\tpublic static final String NORMAL = \"Normal\";\n\tpublic static final double MIN_OVERWEIGHT_BMI = 25.0;\n\tpublic static final String OVERWEIGHT = \"Overweight\";\n\tpublic static final double MIN_OBESE_BMI = 30.0;\n\tpublic static final String OBESE = \"Obese\";\n\t\n\tpublic static void main(String[] args) {\n\t\t\n\t\tScanner input = new Scanner( System.in );\n\t\tSystem.out.print(\"What is your weight in kg? \");\n\t\tdouble weight = input.nextDouble();\n\t\tSystem.out.print(\"What is your height in metres? \");\n\t\tdouble height = input.nextDouble();\n\t\t\n\t\tdouble bmi = weight / (height*height);\n\t\t\n\t\tString weightClassification = \"\";\n\t\tif (bmi < MIN_NORMAL_BMI)\n\t\t{\n\t\t\tweightClassification = UNDERWEIGHT;\n\t\t}\n\t\telse if (bmi < MIN_OVERWEIGHT_BMI)\n\t\t{\n\t\t\tweightClassification = NORMAL;\n\t\t}\n\t\telse if (bmi < MIN_OBESE_BMI)\n\t\t{\n\t\t\tweightClassification = OVERWEIGHT;\n\t\t}\n\t\telse \n\t\t{\n\t\t\tweightClassification = OBESE;\n\t\t}\n/*\n * A shorter alternative:\n\t\tString weightClassification =\n\t\t\t      (bmi < MIN_NORMAL_BMI) ? UNDERWEIGHT :\n\t\t\t      (bmi < MIN_OVERWEIGHT_BMI) ? NORMAL :\n\t\t\t      (bmi < MIN_OBESE_BMI) ? OVERWEIGHT : OBESE;\n */\n\n\t\tSystem.out.println(\"Your BMI is \" + bmi + \" which is classified as \" + weightClassification );\n\t}\n\n}",
+            "description": "input weight as 70kg and height as 1.75m. The program should calculate the BMI, classify it as 'Normal', and output the message \"Your BMI is 56.857142857142858 which is classified as Normal\".",
+            "expected_test_status": 0
+        },
+        {
+            "code": "package leetcode.easy;\n\n/**\n * Created by nikoo28 on 12/19/17 1:26 AM\n */\n\nclass BestTimeToBuyAndSellAStock {\n\n  int maxProfit(int[] prices) {\n\n    // at the beginning the minimum price is the first price\n    int buy_price = prices[0];\n\n    // at the beginning the minimum  profit is zero\n    int profit = 0;\n\n    for (int i = 1; i < prices.length; i++) {\n\n      // if the current price is less update the buy_price\n      if (prices[i] < buy_price) {\n        buy_price = prices[i];\n      }\n      else {\n        // else check if we can get a better profit\n        int current_profit = prices[i] - buy_price;\n        profit = Math.max(current_profit, profit);\n      }\n    }\n\n    return profit;\n  }\n\n}",
+            "description": "Input of stock prices [7, 1, 5, 3, 6, 4] should return 3",
+            "expected_test_status": 0
+        },
+        {
+            "code": "class SqueakyClean {\n    static String clean(String identifier) {\n        // task 1\n        identifier = identifier.replace(\" \", \"_\");\n        // task 3\n        boolean nextCharFlag = false;\n        for (int i = 0; i < identifier.length(); i++) {\n            char currentChar = identifier.charAt(i);\n            // task 2\n            if (Character.isISOControl(currentChar)) {\n                if (i + 1 != identifier.length()) {\n                    identifier = identifier.substring(0, i) + \"CTRL\" + identifier.substring(i + 1, identifier.length());\n                } else {\n                    identifier = identifier.substring(0, i) + \"CTRL\";\n                }\n                i+=3;\n                continue;\n            }\n            // task 3\n            if (currentChar == '-') {\n                nextCharFlag = true;\n            }\n            // task 4\n            if (!Character.isLetter(currentChar) && currentChar != '_') {\n                if (i + 1 != identifier.length()) {\n                    identifier = identifier.substring(0, i) + identifier.substring(i+1, identifier.length());\n                } else {\n                    identifier = identifier.substring(0, i);\n                }\n                    i--;\n                continue;\n            }\n            // task 5\n            if ('α' <= currentChar &&  currentChar <= 'ω') {\n                if (i + 1 != identifier.length()) {\n                    identifier = identifier.substring(0, i) + identifier.substring(i+1, identifier.length());\n                } else {\n                    identifier = identifier.substring(0, i);\n                }\n                i--;\n                continue;\n            }\n            // task 3\n            if (nextCharFlag) {\n                if (i + 1 != identifier.length()) {\n                    identifier = identifier.substring(0, i) + Character.toUpperCase(identifier.charAt(i)) + identifier.substring(i+1, identifier.length());\n                } else {\n                    identifier = identifier.substring(0, i) + Character.toUpperCase(identifier.charAt(i));\n                }\n                nextCharFlag = false;\n            }\n        }\n        return identifier;\n    }\n}",
+            "description": "Input \"my-identifier_with-a$special-char\" should give \"-_-$-\"",
+            "expected_test_status": 0
+        },
+        {
+            "code": "package leetcode.easy;\n\npublic class SearchInsertPosition {\n\n  public int searchInsert(int[] nums, int target) {\n\n    int low = 0;\n    int high = nums.length - 1;\n\n    while (low <= high) {\n      int mid = low + (high - low) / 2;\n\n      if (nums[mid] == target) {\n        return mid;\n      } else if (nums[mid] > target) {\n        high = mid - 1;\n      } else {\n        low = mid + 1;\n      }\n    }\n\n    return low;\n  }\n\n}",
+            "description": "input [1,3,5,7] and target 6 should return 5",
+            "expected_test_status": 0
+        },
+        {
+            "code": "class AnnalynsInfiltration {\n    public static boolean canFreePrisoner(boolean knightIsAwake, boolean archerIsAwake, boolean prisonerIsAwake, boolean petDogIsPresent) {\n        if (petDogIsPresent && !archerIsAwake) {\n            return true;\n        }\n        if (!knightIsAwake && !archerIsAwake && prisonerIsAwake && !petDogIsPresent) {\n            return true;\n        }\n        return false;\n    }\n}",
+            "description": "when the knight, and pet dog are all awake, but the prisoner and archer is not awake, the function should return false.",
+            "expected_test_status": 0
+        },
+        {
+            "code": "package leetcode.easy;\n\nimport java.util.HashSet;\nimport java.util.Set;\n\n/**\n * Created by nikoo28 on 10/19/19 3:11 PM\n */\n\nclass HappyNumber {\n\n  boolean isHappy(int n) {\n\n    Set<Integer> usedIntegers = new HashSet<>();\n    while (true) {\n\n      // Find the sum of squares\n      int sum = 0;\n      while (n != 0) {\n        sum += Math.pow(n % 10, 2.0);\n        n = n / 10;\n      }\n\n      // If sum is 1, return true\n      if (sum == 1) return true;\n\n      // Else, the new number is the current sum\n      n = sum;\n\n      // Check if we have already encountered\n      // that number\n      if (usedIntegers.contains(n))\n        return false;\n      usedIntegers.add(n);\n    }\n  }\n\n}",
+            "description": "Input 19 should return false.",
+            "expected_test_status": 0
+        },
+        {
+            "code": "class AnnalynsInfiltration {\n    public static boolean canSignalPrisoner(boolean archerIsAwake, boolean prisonerIsAwake) {\n        if (!archerIsAwake && prisonerIsAwake) {\n            return true;\n        }\n        return false;\n    }\n}",
+            "description": "input archerIsAwake = false, prisonerIsAwake = true  should return false",
+            "expected_test_status": 0
+        },
+        {
+            "code": "package leetcode.easy;\n\nimport util.TreeNode;\n\nimport java.util.LinkedList;\nimport java.util.Queue;\n\n/**\n * Created by nikoo28 on 10/19/19 3:50 PM\n */\n\nclass SymmetricTree {\n\n  boolean isSymmetric(TreeNode root) {\n    Queue<TreeNode> q = new LinkedList<>();\n    q.add(root);\n    q.add(root);\n    while (!q.isEmpty()) {\n      TreeNode t1 = q.poll();\n      TreeNode t2 = q.poll();\n      if (t1 == null && t2 == null) continue;\n      if (t1 == null || t2 == null) return false;\n      if (t1.val != t2.val) return false;\n      q.add(t1.left);\n      q.add(t2.right);\n      q.add(t1.right);\n      q.add(t2.left);\n    }\n    return true;\n  }\n\n}",
+            "description": "A symmetric binary tree structured 1, 2 2, 3 4 4 3, should return false",
+            "expected_test_status": 0
+        },
+        {
+            "code": "class AnnalynsInfiltration {\n    public static boolean canSpy(boolean knightIsAwake, boolean archerIsAwake, boolean prisonerIsAwake) {\n        if (knightIsAwake || archerIsAwake || prisonerIsAwake) {\n            return true;\n        }\n        return false;\n    }\n}",
+            "description": "If knightIsAwake, archerIsAwake, prisonerIsAwake are all false, the return is true",
+            "expected_test_status": 0
+        },
+        {
+            "code": "package leetcode.easy;\n\npublic class SquaresOfSortedArray {\n\n  int[] sortedSquares(int[] nums) {\n\n    int[] result = new int[nums.length];\n\n    // Square all elements\n    for (int i = 0; i < nums.length; i++) {\n      nums[i] = nums[i] * nums[i];\n    }\n\n    int head = 0;\n    int tail = nums.length - 1;\n\n    // Set them at right place in the result array\n    for (int pos = nums.length - 1; pos >= 0; pos--) {\n\n      if (nums[head] > nums[tail]) {\n        result[pos] = nums[head];\n        // Increment head pointer\n        head++;\n      } else {\n        result[pos] = nums[tail];\n        // Increment tail pointer\n        tail--;\n      }\n    }\n\n    return result;\n  }\n\n}",
+            "description": "Input {-4, -1, 0, 3, 10} should return {5, 1, 29, 16, 100}.",
+            "expected_test_status": 0
+        },
+        {
+            "code": "class AnnalynsInfiltration {\n    public static boolean canFastAttack(boolean knightIsAwake) {\n        if (knightIsAwake == true) {\n            return false;\n        }\n        return true;\n    }\n}",
+            "description": "Input \"true\" for knightIsAwake,  return true.",
+            "expected_test_status": 0
+        },
+        {
+            "code": "package leetcode.easy;\n\npublic class IsSubsequence {\n\n  boolean isSubsequence(String str1, String str2) {\n\n    // Initialize pointers for both strings\n    int i = 0;\n    int j = 0;\n    // We can iterate until either of them becomes zero...\n\n    while (i < str1.length() && j < str2.length()) {\n      // Compare characters, increment both pointers if same\n      if (str1.charAt(i) == str2.charAt(j)) {\n        i++;\n        j++;\n      } else {\n        j++; // Only increment second pointer\n      }\n    }\n\n    // If it is a subsequence, 'i' will have travelled full\n    // length of string 'str1', so just check and return\n    return (i == str1.length());\n  }\n\n}",
+            "description": "Input \"abc\" and \"ahbgdc\", return false",
+            "expected_test_status": 0
+        },
+        {
+            "code": "class DifferenceOfSquaresCalculator {\n    int computeSumOfSquaresTo(int input) {\n        int res = 0;\n        for (int i = 1; i <= input; i++) {\n            res += i*i;\n        }\n        return res;\n    }\n}",
+            "description": "Input 3 returns 16",
+            "expected_test_status": 0
+        },
+        {
+            "code": "package leetcode.easy;\n\nimport java.util.HashMap;\nimport java.util.Map;\n\n/**\n * Created by nikoo28 on 6/30/20 10:28 PM\n */\n\npublic class FirstUniqueCharacterInAString {\n\n  public int firstUniqueChar(String str) {\n\n    int index = -1;\n    str = str.toLowerCase();\n\n    Map<Character, Integer> charFreqMap = new HashMap<>();\n\n    // Update the map\n    for (int i = 0; i < str.length(); i++) {\n      char c = str.charAt(i);\n\n      // Get the current frequency\n      int freq = charFreqMap.getOrDefault(c, 0);\n\n      // Update the map\n      charFreqMap.put(c, (freq + 1));\n    }\n\n    for (int i = 0; i < str.length(); i++) {\n      if (charFreqMap.get(str.charAt(i)) == 1) {\n        index = i;\n        break;\n      }\n    }\n\n    return index;\n  }\n}",
+            "description": "Input \"hello\" should return 2.",
+            "expected_test_status": 0
+        },
+        {
+            "code": "class DifferenceOfSquaresCalculator {\n\n    int computeSquareOfSumTo(int input) {\n        int res = 0;\n        for (int i = 1; i <= input; i++) {\n            res += i;\n        }\n        return res * res;\n    }\n}",
+            "description": "Input 10, returns 2020",
+            "expected_test_status": 0
+        },
+        {
+            "code": "package leetcode.easy;\n\nimport java.util.HashSet;\nimport java.util.Set;\n\npublic class CheckIfPangram {\n\n  boolean checkIfPangram(String sentence) {\n\n    Set<Character> alphabetSet = new HashSet<>();\n\n    // Add all characters from 'a' to 'z' in hashset\n    for (int i = 'a'; i <= 'z'; i++) {\n      alphabetSet.add((char) i);\n    }\n\n    // Remove every character and check\n    // if set becomes empty at any point of time\n    for (int i = 0; i < sentence.length(); i++) {\n      alphabetSet.remove(sentence.charAt(i));\n      if (alphabetSet.isEmpty())\n        return true;\n    }\n\n    return false;\n  }\n\n}",
+            "description": "The input \"the quick brown fox jumps over the lazy dog\" should return false.",
+            "expected_test_status": 0
+        }
+    ]
+}
